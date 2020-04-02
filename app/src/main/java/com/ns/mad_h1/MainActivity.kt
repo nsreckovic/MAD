@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import timber.log.Timber
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
     companion object {
         const val LOGGED_IN_KEY = "loggedInKey"
