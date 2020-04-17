@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MAD-P1</string>
+
+    <string name="ISZP">Informacioni sistem za pracenje stanja pacijenata obolelih od Covid-19</string>
+
+    <string name="name_placeholder">Unesite ime</string>
+    <string name="surname_placeholder">Unesite prezime</string>
+    <string name="hospital_placeholder">Unesite ime bolnice u kojoj ste zaposleni</string>
+
+    <string name="enter_pin">Unesite pin</string>
+    <string name="sign_in">Prijava</string>
+
+
+    <string name="input_text_error">Molimo Vas da popunite sva polja.</string>
+    <string name="input_pin_lenght_error">Pin mora imati 4 cifre!</string>
+    <string name="input_pin_error">Pogresan pin! Pokusajte ponovo.</string>
+
 </resources>
