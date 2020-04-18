@@ -3,8 +3,11 @@ package com.ns.mad_p1.view.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ns.mad_p1.R
-import com.ns.mad_p1.view.viewpager.PagerAdapter
+import com.ns.mad_p1.view.viewpager.MainActivityPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.viewPager
+import kotlinx.android.synthetic.main.fragment_list.*
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
@@ -19,23 +22,24 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun initViewPager() {
-        viewPager.adapter = PagerAdapter(supportFragmentManager, this)
+        if (viewPager == null) Timber.e("NULL JE MAIN")
+        viewPager.adapter = MainActivityPagerAdapter(supportFragmentManager, this)
     }
 
     private fun initNavigation() {
         bottomNavigation.setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.state_mi ->  {
-                    viewPager.setCurrentItem(PagerAdapter.FRAGMENT_STATE, false)
+                    viewPager.setCurrentItem(MainActivityPagerAdapter.FRAGMENT_STATE, false)
                 }
                 R.id.input_mi ->  {
-                    viewPager.setCurrentItem(PagerAdapter.FRAGMENT_INPUT, false)
+                    viewPager.setCurrentItem(MainActivityPagerAdapter.FRAGMENT_INPUT, false)
                 }
                 R.id.list_mi ->  {
-                    viewPager.setCurrentItem(PagerAdapter.FRAGMENT_LIST, false)
+                    viewPager.setCurrentItem(MainActivityPagerAdapter.FRAGMENT_LIST, false)
                 }
                 R.id.profile_mi ->  {
-                    viewPager.setCurrentItem(PagerAdapter.FRAGMENT_PROFILE, false)
+                    viewPager.setCurrentItem(MainActivityPagerAdapter.FRAGMENT_PROFILE, false)
                 }
             }
             return@setOnNavigationItemSelectedListener true

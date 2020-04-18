@@ -29,4 +29,8 @@
     <string name="input_symptoms_placeholder">Unesite simptome i opste stanje pacijenta</string>
     <string name="input_btn_add">Dodaj u cekaonicu</string>
 
+    <string name="list_waiting">Cekaonica</string>
+    <string name="list_hospitalised">Hospitalizovani</string>
+    <string name="list_dismissed">Otpusteni</string>
+
 </resources>

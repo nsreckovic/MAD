@@ -10,7 +10,7 @@ import com.ns.mad_p1.view.fragments.ListFragment
 import com.ns.mad_p1.view.fragments.ProfileFragment
 import com.ns.mad_p1.view.fragments.StateFragment
 
-class PagerAdapter(fragmentManager: FragmentManager, private var context: Context) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)  {
+class MainActivityPagerAdapter(fragmentManager: FragmentManager, private var context: Context?) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)  {
 
     companion object {
         private const val ITEM_COUNT = 4
@@ -36,10 +36,10 @@ class PagerAdapter(fragmentManager: FragmentManager, private var context: Contex
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
-            FRAGMENT_STATE -> context.getString(R.string.state_mi)
-            FRAGMENT_INPUT -> context.getString(R.string.input_mi)
-            FRAGMENT_LIST -> context.getString(R.string.list_mi)
-            else -> context.getString(R.string.profile_mi)
+            FRAGMENT_STATE -> context?.getString(R.string.state_mi)
+            FRAGMENT_INPUT -> context?.getString(R.string.input_mi)
+            FRAGMENT_LIST -> context?.getString(R.string.list_mi)
+            else -> context?.getString(R.string.profile_mi)
         }
     }
 
