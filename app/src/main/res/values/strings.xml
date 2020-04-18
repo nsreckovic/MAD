@@ -15,4 +15,9 @@
     <string name="input_pin_lenght_error">Pin mora imati 4 cifre!</string>
     <string name="input_pin_error">Pogresan pin! Pokusajte ponovo.</string>
 
+    <string name="state_mi">Stanje</string>
+    <string name="input_mi">Unos</string>
+    <string name="list_mi">Liste</string>
+    <string name="profile_mi">Profil</string>
+
 </resources>
