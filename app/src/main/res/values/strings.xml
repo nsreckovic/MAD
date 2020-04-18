@@ -20,4 +20,9 @@
     <string name="list_mi">Liste</string>
     <string name="profile_mi">Profil</string>
 
+    <string name="state_info">Pregled brojnog stanja pacijenata</string>
+    <string name="state_waiting">Broj pacijenata u cekaonici:</string>
+    <string name="state_hospitalised">Broj hospitalizovanih pacijenata:</string>
+    <string name="state_dismissed">Broj otpustenih pacijenata:</string>
+
 </resources>

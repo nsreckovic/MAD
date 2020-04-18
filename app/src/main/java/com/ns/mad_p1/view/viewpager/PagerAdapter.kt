@@ -1,15 +1,16 @@
 package com.ns.mad_p1.view.viewpager
 
-import android.content.res.Resources
+import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.ns.mad_p1.R
 import com.ns.mad_p1.view.fragments.InputFragment
 import com.ns.mad_p1.view.fragments.ListFragment
 import com.ns.mad_p1.view.fragments.ProfileFragment
 import com.ns.mad_p1.view.fragments.StateFragment
 
-class PagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)  {
+class PagerAdapter(fragmentManager: FragmentManager, private var context: Context) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)  {
 
     companion object {
         private const val ITEM_COUNT = 4
@@ -35,10 +36,10 @@ class PagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(frag
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
-            FRAGMENT_STATE -> "Stanje"
-            FRAGMENT_INPUT -> "Unos"
-            FRAGMENT_LIST -> "Liste"
-            else -> "Profil"
+            FRAGMENT_STATE -> context.getString(R.string.state_mi)
+            FRAGMENT_INPUT -> context.getString(R.string.input_mi)
+            FRAGMENT_LIST -> context.getString(R.string.list_mi)
+            else -> context.getString(R.string.profile_mi)
         }
     }
 
