@@ -7,4 +7,7 @@
     <color name="yellow">#FF9800</color>
     <color name="red">#9F0505</color>
     <color name="green">#247327</color>
+    <color name="tealLight">#1ADAB3</color>
+    <color name="teal">#15A588</color>
+    <color name="tealDark">#0E6C59</color>
 </resources>

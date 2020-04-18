@@ -25,4 +25,8 @@
     <string name="state_hospitalised">Broj hospitalizovanih pacijenata:</string>
     <string name="state_dismissed">Broj otpustenih pacijenata:</string>
 
+    <string name="input_info">Unos novog pacijenta</string>
+    <string name="input_symptoms_placeholder">Unesite simptome i opste stanje pacijenta</string>
+    <string name="input_btn_add">Dodaj u cekaonicu</string>
+
 </resources>
