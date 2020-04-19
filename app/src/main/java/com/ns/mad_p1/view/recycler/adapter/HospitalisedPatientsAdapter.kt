@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.ListAdapter
 import com.ns.mad_p1.R
 import com.ns.mad_p1.model.Patient
 import com.ns.mad_p1.view.recycler.diff.PatientDiffItemCallback
-import com.ns.mad_p1.view.recycler.viewHolder.HospitalisedPatientsWaitingViewHolder
+import com.ns.mad_p1.view.recycler.viewHolder.HospitalisedPatientsViewHolder
 
-class HospitalisedPatientsAdapter(carDiffItemCallback: PatientDiffItemCallback, private val onBtnPatientFileClicked: (Patient) -> Unit, private val onBtnDismissClicked: (Patient) -> Unit): ListAdapter<Patient, HospitalisedPatientsWaitingViewHolder>(carDiffItemCallback) {
+class HospitalisedPatientsAdapter(carDiffItemCallback: PatientDiffItemCallback, private val onBtnPatientFileClicked: (Patient) -> Unit, private val onBtnDismissClicked: (Patient) -> Unit): ListAdapter<Patient, HospitalisedPatientsViewHolder>(carDiffItemCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HospitalisedPatientsWaitingViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HospitalisedPatientsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val containerView = layoutInflater.inflate(R.layout.layout_patient_hospitalised_list_item, parent, false)
 
-        return HospitalisedPatientsWaitingViewHolder(containerView, {
+        return HospitalisedPatientsViewHolder(containerView, {
             val patient = getItem(it)
             onBtnPatientFileClicked.invoke(patient)
         }, {
@@ -23,7 +23,7 @@ class HospitalisedPatientsAdapter(carDiffItemCallback: PatientDiffItemCallback, 
         })
     }
 
-    override fun onBindViewHolder(holder: HospitalisedPatientsWaitingViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HospitalisedPatientsViewHolder, position: Int) {
         val patient = getItem(position)
         holder.bind(patient)
     }
