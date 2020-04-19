@@ -33,4 +33,7 @@
     <string name="list_hospitalised">Hospitalizovani</string>
     <string name="list_dismissed">Otpusteni</string>
 
+    <string name="healthy">Zdrav</string>
+    <string name="hospitalisation">Hospitalizacija</string>
+
 </resources>

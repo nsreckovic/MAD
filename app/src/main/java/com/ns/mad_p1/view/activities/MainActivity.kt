@@ -2,8 +2,10 @@ package com.ns.mad_p1.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.ns.mad_p1.R
 import com.ns.mad_p1.view.viewpager.MainActivityPagerAdapter
+import com.ns.mad_p1.viewmodel.SharedPatientViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.viewPager
 import kotlinx.android.synthetic.main.fragment_list.*

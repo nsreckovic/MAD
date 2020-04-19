@@ -20,7 +20,6 @@ class ListsPagerAdapter(fragmentManager: FragmentManager, private var context: C
     }
 
     override fun getItem(position: Int): Fragment {
-        Timber.e("GET ITEM")
         return when(position) {
             FRAGMENT_WAITING_LIST -> ListWaitingFragment()
             FRAGMENT_HOSPITALISED_LIST -> ListHospitalisedFragment()
@@ -29,12 +28,10 @@ class ListsPagerAdapter(fragmentManager: FragmentManager, private var context: C
     }
 
     override fun getCount(): Int {
-        Timber.e("GET COUNT")
         return ITEM_COUNT
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        Timber.e("GET TITLE")
         return when(position) {
             FRAGMENT_WAITING_LIST -> context?.getString(R.string.list_waiting)
             FRAGMENT_HOSPITALISED_LIST -> context?.getString(R.string.list_hospitalised)

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.ns.mad_p1.R
 import com.ns.mad_p1.view.viewpager.ListsPagerAdapter
+import com.ns.mad_p1.viewmodel.SharedPatientViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListFragment : Fragment(R.layout.fragment_list) {
