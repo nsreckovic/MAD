@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.ns.mad_p1.R
-import com.ns.mad_p1.view.fragments.RandomFragment
+import com.ns.mad_p1.view.fragments.ListDismissedFragment
+import com.ns.mad_p1.view.fragments.ListHospitalisedFragment
+import com.ns.mad_p1.view.fragments.ListWaitingFragment
 import timber.log.Timber
 
 class ListsPagerAdapter(fragmentManager: FragmentManager, private var context: Context?) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)  {
@@ -17,13 +19,12 @@ class ListsPagerAdapter(fragmentManager: FragmentManager, private var context: C
         const val FRAGMENT_DISMISSED_LIST = 2
     }
 
-
     override fun getItem(position: Int): Fragment {
         Timber.e("GET ITEM")
         return when(position) {
-            FRAGMENT_WAITING_LIST -> RandomFragment()
-            FRAGMENT_HOSPITALISED_LIST -> RandomFragment()
-            else -> RandomFragment()
+            FRAGMENT_WAITING_LIST -> ListWaitingFragment()
+            FRAGMENT_HOSPITALISED_LIST -> ListHospitalisedFragment()
+            else -> ListDismissedFragment()
         }
     }
 

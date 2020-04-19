@@ -1,16 +1,16 @@
 package com.ns.mad_p1.view.fragments
 
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.ns.mad_p1.R
 import com.ns.mad_p1.view.viewpager.ListsPagerAdapter
 import kotlinx.android.synthetic.main.fragment_list.*
-import timber.log.Timber
 
 class ListFragment : Fragment(R.layout.fragment_list) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         init()
     }
 
@@ -19,9 +19,8 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     }
 
     private fun initTabs() {
-        if (listsViewPager == null) Timber.e("NULL JE")
-//        listsViewPager.adapter = ListsPagerAdapter(childFragmentManager, activity)
-//        listsTabLayout.setupWithViewPager(listsViewPager)
+        listsViewPager.adapter = ListsPagerAdapter(childFragmentManager, activity)
+        listsTabLayout.setupWithViewPager(listsViewPager)
     }
 
 }
