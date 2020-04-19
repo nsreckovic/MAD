@@ -44,8 +44,10 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
             }
 
             if (pin == default_pin) {
-                editor.putBoolean(SplashActivity.LOGGED_IN_KEY, true)
-                editor.putString(SplashActivity.LOGGED_IN_USER, name)
+                editor.putBoolean(SplashActivity.LOGGED_IN, true)
+                editor.putString(SplashActivity.LOGGED_IN_USER_NAME, name)
+                editor.putString(SplashActivity.LOGGED_IN_USER_SURNAME, surname)
+                editor.putString(SplashActivity.LOGGED_IN_USER_HOSPITAL, hospital)
                 editor.commit()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

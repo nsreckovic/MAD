@@ -47,4 +47,12 @@
 
     <string name="dismiss_success_msg">Pacijent uspesno otpusten.</string>
 
+
+    <string name="profile_info">Podaci o zdravstvenom radniku</string>
+    <string name="profile_name">Ime:</string>
+    <string name="profile_surname">Prezime:</string>
+    <string name="profile_hospital">Bolnica:</string>
+    <string name="profile_edit">Izmeni</string>
+    <string name="profile_signout">Odjava</string>
+
 </resources>
