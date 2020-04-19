@@ -28,4 +28,11 @@ class HospitalisedPatientsViewModel : ViewModel()  {
         patients.value = listToSubmit
     }
 
+    fun searchPatients(filter: String) {
+        val filteredList = patientList.filter {
+            it.name.toLowerCase().startsWith(filter.toLowerCase()) || it.surname.toLowerCase().startsWith(filter.toLowerCase())
+        }
+        patients.value = filteredList
+    }
+
 }

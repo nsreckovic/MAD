@@ -46,6 +46,7 @@ class InputFragment : Fragment(R.layout.fragment_input) {
                     patient_state,
                     patient_state,
                     date,
+                    null,
                     null
                 )
 

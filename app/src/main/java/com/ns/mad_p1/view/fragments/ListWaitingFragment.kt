@@ -9,19 +9,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.mad_p1.R
-import com.ns.mad_p1.view.recycler.adapter.PatientAdapter
+import com.ns.mad_p1.view.recycler.adapter.WaitingPatientsAdapter
 import com.ns.mad_p1.view.recycler.diff.PatientDiffItemCallback
 import com.ns.mad_p1.viewmodel.HospitalisedPatientsViewModel
 import com.ns.mad_p1.viewmodel.WaitingPatientsViewModel
 import kotlinx.android.synthetic.main.fragment_list_waiting.*
-import kotlinx.android.synthetic.main.layout_patient_waiting_list_item.*
-import timber.log.Timber
+import java.util.*
 
 class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
 
     private val waitingPatientsViewModel: WaitingPatientsViewModel by activityViewModels()
     private val hospitalisationPatientsViewModel: HospitalisedPatientsViewModel by activityViewModels()
-    private lateinit var patientAdapter: PatientAdapter
+    private lateinit var waitingPatientsAdapter: WaitingPatientsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,22 +45,24 @@ class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
 
     private fun initRecycler() {
         listWaitingRv.layoutManager = LinearLayoutManager(context)
-        patientAdapter = PatientAdapter(PatientDiffItemCallback(), {
+        waitingPatientsAdapter = WaitingPatientsAdapter(PatientDiffItemCallback(), {
             // Healthy button
             waitingPatientsViewModel.removePatient(it)
             Toast.makeText(context, R.string.healthy_success_msg, Toast.LENGTH_SHORT).show()
         }, {
             // Hospitalisation button
+            val date = Date()
+            it.hospitalisation_date = date
             hospitalisationPatientsViewModel.addPatient(it)
             waitingPatientsViewModel.removePatient(it)
             Toast.makeText(context, R.string.hospitalisation_success_msg, Toast.LENGTH_SHORT).show()
         })
-        listWaitingRv.adapter = patientAdapter
+        listWaitingRv.adapter = waitingPatientsAdapter
     }
 
     private fun initObservers() {
         waitingPatientsViewModel.getPatients().observe(viewLifecycleOwner, Observer {
-            patientAdapter.submitList(it)
+            waitingPatientsAdapter.submitList(it)
         })
     }
 

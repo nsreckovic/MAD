@@ -42,4 +42,9 @@
 
     <string name="search_placeholder">Pretrazi po imenu ili prezimenu</string>
 
+    <string name="patient_file">Karton</string>
+    <string name="dismiss_patient">Otpust</string>
+
+    <string name="dismiss_success_msg">Pacijent uspesno otpusten.</string>
+
 </resources>

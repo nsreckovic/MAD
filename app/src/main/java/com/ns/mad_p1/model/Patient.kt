@@ -10,5 +10,6 @@ data class Patient(
     val initial_state: String,
     val current_state: String,
     val admission_date: Date,
-    val hospitalisation_date: Date?
+    var hospitalisation_date: Date?,
+    var dismiss_date: Date?
 )

@@ -24,7 +24,8 @@ class WaitingPatientsViewModel : ViewModel() {
                  "Pacijent $i ima povisenu temperaturu i bolove u misicima.",
                 "Pacijent $i ima povisenu temperaturu i bolove u misicima.",
                             date,
-           null)
+           null,
+                null)
             patientList.add(patient)
         }
         patients.value = patientList
