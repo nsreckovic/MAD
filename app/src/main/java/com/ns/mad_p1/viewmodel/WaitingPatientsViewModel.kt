@@ -7,13 +7,12 @@ import com.ns.mad_p1.model.Patient
 import timber.log.Timber
 import java.util.*
 
-class SharedPatientViewModel : ViewModel() {
+class WaitingPatientsViewModel : ViewModel() {
 
     private val patients: MutableLiveData<List<Patient>> = MutableLiveData()
     private val patientList : MutableList<Patient> = mutableListOf()
 
     init {
-        Timber.e("Model init")
         for (i in 1..100) {
             val uuid : UUID = UUID.randomUUID()
             val date: Date = Date()
@@ -23,7 +22,7 @@ class SharedPatientViewModel : ViewModel() {
                      "Pacijent $i",
                    "Pacijentanovic $i",
                  "Pacijent $i ima povisenu temperaturu i bolove u misicima.",
-                "Pacijent ima povisenu temperaturu i bolove u misicima.",
+                "Pacijent $i ima povisenu temperaturu i bolove u misicima.",
                             date,
            null)
             patientList.add(patient)
@@ -35,9 +34,11 @@ class SharedPatientViewModel : ViewModel() {
         return patients
     }
 
-    fun addCar(patient: Patient) {
+    fun addPatient(patient: Patient) {
         patientList.add(patient)
-        patients.value = patientList
+        val listToSubmit = mutableListOf<Patient>()
+        listToSubmit.addAll(patientList)
+        patients.value = listToSubmit
     }
 
 }

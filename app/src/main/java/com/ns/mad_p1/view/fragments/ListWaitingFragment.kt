@@ -1,6 +1,5 @@
 package com.ns.mad_p1.view.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -10,14 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.mad_p1.R
 import com.ns.mad_p1.view.recycler.adapter.PatientAdapter
 import com.ns.mad_p1.view.recycler.diff.PatientDiffItemCallback
-import com.ns.mad_p1.viewmodel.SharedPatientViewModel
+import com.ns.mad_p1.viewmodel.WaitingPatientsViewModel
 import kotlinx.android.synthetic.main.fragment_list_waiting.*
-import kotlinx.android.synthetic.main.layout_patient_waiting_list_item.*
 import timber.log.Timber
 
 class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
 
-    private val sharedPatientViewModel: SharedPatientViewModel by activityViewModels()
+    private val waitingPatientsViewModel: WaitingPatientsViewModel by activityViewModels()
     private lateinit var patientAdapter: PatientAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +50,7 @@ class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
     }
 
     private fun initObservers() {
-        sharedPatientViewModel.getPatients().observe(viewLifecycleOwner, Observer {
+        waitingPatientsViewModel.getPatients().observe(viewLifecycleOwner, Observer {
             patientAdapter.submitList(it)
         })
     }

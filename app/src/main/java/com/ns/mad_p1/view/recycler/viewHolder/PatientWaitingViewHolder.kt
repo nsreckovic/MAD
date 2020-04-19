@@ -11,7 +11,6 @@ class PatientWaitingViewHolder(override val containerView: View, onItemClicked: 
 
     init {
         containerView.setOnClickListener {
-            // ViewHolder zna na kojoj se poziciju a adapteru nalazi ovaj item koji se trenutno nalzai u njemu
             onItemClicked.invoke(adapterPosition)
         }
     }

@@ -9,7 +9,6 @@ import com.ns.mad_p1.view.fragments.InputFragment
 import com.ns.mad_p1.view.fragments.ListFragment
 import com.ns.mad_p1.view.fragments.ProfileFragment
 import com.ns.mad_p1.view.fragments.StateFragment
-import com.ns.mad_p1.viewmodel.SharedPatientViewModel
 
 class MainActivityPagerAdapter(fragmentManager: FragmentManager, private var context: Context?) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)  {
 
