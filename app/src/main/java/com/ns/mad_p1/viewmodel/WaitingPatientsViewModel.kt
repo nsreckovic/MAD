@@ -41,4 +41,18 @@ class WaitingPatientsViewModel : ViewModel() {
         patients.value = listToSubmit
     }
 
+    fun removePatient(patient: Patient) {
+        patientList.remove(patient)
+        val listToSubmit = mutableListOf<Patient>()
+        listToSubmit.addAll(patientList)
+        patients.value = listToSubmit
+    }
+
+    fun searchPatients(filter: String) {
+        val filteredList = patientList.filter {
+            it.name.toLowerCase().startsWith(filter.toLowerCase()) || it.surname.toLowerCase().startsWith(filter.toLowerCase())
+        }
+        patients.value = filteredList
+    }
+
 }

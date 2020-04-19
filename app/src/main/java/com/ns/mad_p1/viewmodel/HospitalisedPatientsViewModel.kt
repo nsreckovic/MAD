@@ -21,4 +21,11 @@ class HospitalisedPatientsViewModel : ViewModel()  {
         patients.value = listToSubmit
     }
 
+    fun removePatient(patient: Patient) {
+        patientList.remove(patient)
+        val listToSubmit = mutableListOf<Patient>()
+        listToSubmit.addAll(patientList)
+        patients.value = listToSubmit
+    }
+
 }

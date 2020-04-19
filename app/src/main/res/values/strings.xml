@@ -37,4 +37,9 @@
     <string name="healthy">Zdrav</string>
     <string name="hospitalisation">Hospitalizacija</string>
 
+    <string name="healthy_success_msg">Pacijent je zdrav i uspesno uklonjen iz liste.</string>
+    <string name="hospitalisation_success_msg">Pacijent je uspesno hospitalizovan.</string>
+
+    <string name="search_placeholder">Pretrazi po imenu ili prezimenu</string>
+
 </resources>
