@@ -55,4 +55,8 @@
     <string name="profile_edit">Izmeni</string>
     <string name="profile_signout">Odjava</string>
 
+    <string name="editprofile_info">Izmena podataka o zdravstvenom radniku</string>
+    <string name="editprofile_cancel">Odustani</string>
+    <string name="editprofile_data_saved_msg">Izmene sacuvane.</string>
+
 </resources>

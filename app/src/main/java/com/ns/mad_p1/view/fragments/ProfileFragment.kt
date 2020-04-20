@@ -6,14 +6,22 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.ns.mad_p1.R
+import com.ns.mad_p1.view.activities.EditProfileActivity
 import com.ns.mad_p1.view.activities.SplashActivity
+import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.*
+import timber.log.Timber
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initUI()
     }
 
     private fun init() {
@@ -33,6 +41,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     private fun initListeners() {
+        profile_Edit_Btn.setOnClickListener {
+            val intent = Intent(context, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+
         profile_SignOut_Btn.setOnClickListener {
             val editor = context?.getSharedPreferences(context?.packageName, Context.MODE_PRIVATE)?.edit()
             if (editor != null) {
