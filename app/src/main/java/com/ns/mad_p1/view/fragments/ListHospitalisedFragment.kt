@@ -1,5 +1,7 @@
 package com.ns.mad_p1.view.fragments
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -9,6 +11,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.mad_p1.R
+import com.ns.mad_p1.model.Patient
+import com.ns.mad_p1.view.activities.PatientFileActivity
 import com.ns.mad_p1.view.recycler.adapter.HospitalisedPatientsAdapter
 import com.ns.mad_p1.view.recycler.diff.PatientDiffItemCallback
 import com.ns.mad_p1.viewmodel.DismissedPatientsViewModel
@@ -16,9 +20,19 @@ import com.ns.mad_p1.viewmodel.HospitalisedPatientsViewModel
 import kotlinx.android.synthetic.main.fragment_list_dismissed.*
 import kotlinx.android.synthetic.main.fragment_list_hospitalised.*
 import kotlinx.android.synthetic.main.fragment_list_waiting.*
+import timber.log.Timber
 import java.util.*
 
 class ListHospitalisedFragment : Fragment(R.layout.fragment_list_hospitalised) {
+
+    init {
+        Timber.e("Init")
+    }
+
+    companion object {
+        const val EDITED_PATIENT_KEY = "editedPatientKey"
+        const val PATIENT_RECEIVED_REQUEST_CODE = 1234
+    }
 
     private val hospitalisationPatientsViewModel: HospitalisedPatientsViewModel by activityViewModels()
     private val dismissedPatientsViewModel: DismissedPatientsViewModel by activityViewModels()
@@ -49,6 +63,9 @@ class ListHospitalisedFragment : Fragment(R.layout.fragment_list_hospitalised) {
         listHospitalisedRv.layoutManager = LinearLayoutManager(context)
         hospitalisedPatientsAdapter = HospitalisedPatientsAdapter(PatientDiffItemCallback(), {
             // File button
+            val intent = Intent(context, PatientFileActivity::class.java)
+            intent.putExtra(PatientFileActivity.PATIENT_KEY, it)
+            startActivityForResult(intent, PATIENT_RECEIVED_REQUEST_CODE)
 
         }, {
             // Dismiss button
@@ -59,6 +76,22 @@ class ListHospitalisedFragment : Fragment(R.layout.fragment_list_hospitalised) {
             Toast.makeText(context, R.string.dismiss_success_msg, Toast.LENGTH_SHORT).show()
         })
         listHospitalisedRv.adapter = hospitalisedPatientsAdapter
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PATIENT_RECEIVED_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val edited_patient = data?.getParcelableExtra<Patient>(EDITED_PATIENT_KEY)
+                if (edited_patient != null) {
+                    hospitalisationPatientsViewModel.editPatient(edited_patient)
+                    hospitalisedPatientsAdapter.notifyDataSetChanged()
+                    Toast.makeText(context, R.string.patient_file_data_saved_msg, Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Timber.e("Return error")
+            }
+        }
     }
 
     private fun initObservers() {

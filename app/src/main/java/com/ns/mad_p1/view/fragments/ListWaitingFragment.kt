@@ -44,19 +44,34 @@ class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
     }
 
     private fun initRecycler() {
+        var notified: Boolean = true
+
         listWaitingRv.layoutManager = LinearLayoutManager(context)
-        waitingPatientsAdapter = WaitingPatientsAdapter(PatientDiffItemCallback(), {
-            // Healthy button
-            waitingPatientsViewModel.removePatient(it)
-            Toast.makeText(context, R.string.healthy_success_msg, Toast.LENGTH_SHORT).show()
-        }, {
-            // Hospitalisation button
-            val date = Date()
-            it.hospitalisation_date = date
-            hospitalisationPatientsViewModel.addPatient(it)
-            waitingPatientsViewModel.removePatient(it)
-            Toast.makeText(context, R.string.hospitalisation_success_msg, Toast.LENGTH_SHORT).show()
-        })
+        waitingPatientsAdapter = WaitingPatientsAdapter(PatientDiffItemCallback(),
+            {
+                // Healthy button
+
+                waitingPatientsViewModel.removePatient(it)
+                if (notified) {
+                    waitingPatientsAdapter.notifyDataSetChanged()
+                    notified = false
+                }
+                Toast.makeText(context, R.string.healthy_success_msg, Toast.LENGTH_SHORT).show()
+
+            }, {
+                // Hospitalisation button
+
+                val date = Date()
+                it.hospitalisation_date = date
+                hospitalisationPatientsViewModel.addPatient(it)
+                waitingPatientsViewModel.removePatient(it)
+                if (notified) {
+                    waitingPatientsAdapter.notifyDataSetChanged()
+                    notified = false
+                }
+                Toast.makeText(context, R.string.hospitalisation_success_msg, Toast.LENGTH_SHORT).show()
+            })
+
         listWaitingRv.adapter = waitingPatientsAdapter
     }
 

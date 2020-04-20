@@ -1,7 +1,6 @@
 package com.ns.mad_p1.view.activities
 
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -33,7 +32,6 @@ class EditProfileActivity : AppCompatActivity(R.layout.activity_edit_profile) {
 
     private fun initListeners() {
         edit_profile_Edit_Btn.setOnClickListener {
-            val sharedPreferences = getSharedPreferences(packageName, MODE_PRIVATE)
             val name = edit_profile_WorkerName_Et.text.toString()
             val surname = edit_profile_WorkerSurname_Et.text.toString()
             val hospital = edit_profile_WorkerHospital_Et.text.toString()
@@ -48,11 +46,11 @@ class EditProfileActivity : AppCompatActivity(R.layout.activity_edit_profile) {
                 editor.putString(SplashActivity.LOGGED_IN_USER_SURNAME, surname)
                 editor.putString(SplashActivity.LOGGED_IN_USER_HOSPITAL, hospital)
                 editor.commit()
-                Toast.makeText(this, R.string.editprofile_data_saved_msg, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.edit_profile_data_saved_msg, Toast.LENGTH_SHORT).show()
                 finish()
             }
-
         }
+
         edit_profile_Cancel_Btn.setOnClickListener {
             finish()
         }

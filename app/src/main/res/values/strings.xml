@@ -10,6 +10,7 @@
     <string name="enter_pin">Unesite pin</string>
     <string name="sign_in">Prijava</string>
 
+    <string name="back_press_disabled_msg">Molimo Vas iskoristite dugme odustani.</string>
 
     <string name="input_text_error">Molimo Vas da popunite sva polja.</string>
     <string name="input_pin_lenght_error">Pin mora imati 4 cifre!</string>
@@ -55,8 +56,21 @@
     <string name="profile_edit">Izmeni</string>
     <string name="profile_signout">Odjava</string>
 
-    <string name="editprofile_info">Izmena podataka o zdravstvenom radniku</string>
-    <string name="editprofile_cancel">Odustani</string>
-    <string name="editprofile_data_saved_msg">Izmene sacuvane.</string>
+    <!--  Edit profile activity  -->
+    <string name="edit_profile_info">Izmena podataka o zdravstvenom radniku</string>
+    <string name="edit_profile_cancel">Odustani</string>
+    <string name="edit_profile_edit">Izmeni</string>
+    <string name="edit_profile_data_saved_msg">Izmene sacuvane.</string>
+
+    <!--  Patient file activity  -->
+    <string name="patient_file_info">Karton pacijenta</string>
+    <string name="patient_file_name">Ime:</string>
+    <string name="patient_file_surname">Prezime:</string>
+    <string name="patient_file_admission_state">Stanje pri prijemu</string>
+    <string name="patient_file_current_state">Trenutno stanje</string>
+    <string name="patient_file_cancel">Odustani</string>
+    <string name="patient_file_admission_date">Datum prijema:</string>
+    <string name="patient_file_edit">Izmeni</string>
+    <string name="patient_file_data_saved_msg">Izmene sacuvane.</string>
 
 </resources>
