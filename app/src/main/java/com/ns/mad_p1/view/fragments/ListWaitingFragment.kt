@@ -14,6 +14,7 @@ import com.ns.mad_p1.view.recycler.diff.PatientDiffItemCallback
 import com.ns.mad_p1.viewmodel.HospitalisedPatientsViewModel
 import com.ns.mad_p1.viewmodel.WaitingPatientsViewModel
 import kotlinx.android.synthetic.main.fragment_list_waiting.*
+import timber.log.Timber
 import java.util.*
 
 class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
@@ -72,6 +73,10 @@ class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
                 Toast.makeText(context, R.string.list_waiting_hospitalisation_success, Toast.LENGTH_SHORT).show()
             })
 
+        if (notified) {
+            waitingPatientsAdapter.notifyDataSetChanged()
+            notified = false
+        }
         list_waiting_Rv.adapter = waitingPatientsAdapter
     }
 
