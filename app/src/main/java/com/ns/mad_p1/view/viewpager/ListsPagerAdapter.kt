@@ -8,7 +8,6 @@ import com.ns.mad_p1.R
 import com.ns.mad_p1.view.fragments.ListDismissedFragment
 import com.ns.mad_p1.view.fragments.ListHospitalisedFragment
 import com.ns.mad_p1.view.fragments.ListWaitingFragment
-import timber.log.Timber
 
 class ListsPagerAdapter(fragmentManager: FragmentManager, private var context: Context?) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)  {
 
@@ -33,7 +32,7 @@ class ListsPagerAdapter(fragmentManager: FragmentManager, private var context: C
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
-            FRAGMENT_WAITING_LIST -> context?.getString(R.string.list_waiting)
+            FRAGMENT_WAITING_LIST -> context?.getString(R.string.list_waiting_room)
             FRAGMENT_HOSPITALISED_LIST -> context?.getString(R.string.list_hospitalised)
             else -> context?.getString(R.string.list_dismissed)
         }

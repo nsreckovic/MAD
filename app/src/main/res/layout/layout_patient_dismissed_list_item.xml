@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="190dp"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:background="@drawable/border_large">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/dismissItemPatientPictureIv"
+        android:id="@+id/item_dismissed_Image_Iv"
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/dismissItemPatientNameTv"
+        android:id="@+id/item_dismissed_Name_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textSize="14dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/dismissItemPatientPictureIv"
-        app:layout_constraintTop_toTopOf="@+id/dismissItemPatientPictureIv" />
+        app:layout_constraintStart_toEndOf="@id/item_dismissed_Image_Iv"
+        app:layout_constraintTop_toTopOf="@+id/item_dismissed_Image_Iv" />
 
     <TextView
-        android:id="@+id/dismissItemPatientSurnameTv"
+        android:id="@+id/item_dismissed_Surname_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textSize="14dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/dismissItemPatientPictureIv"
-        app:layout_constraintTop_toBottomOf="@+id/dismissItemPatientNameTv" />
+        app:layout_constraintStart_toEndOf="@id/item_dismissed_Image_Iv"
+        app:layout_constraintTop_toBottomOf="@+id/item_dismissed_Name_Tv" />
 
     <TextView
-        android:id="@+id/dismissItemPatientDateTv"
+        android:id="@+id/item_dismissed_Date_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@id/dismissItemPatientPictureIv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dismissItemPatientPictureIv" />
+        app:layout_constraintStart_toStartOf="@id/item_dismissed_Image_Iv"
+        app:layout_constraintTop_toBottomOf="@+id/item_dismissed_Image_Iv" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

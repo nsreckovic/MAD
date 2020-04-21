@@ -5,11 +5,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/infoTv"
+        android:id="@+id/add_patient_Info_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/input_info"
+        android:text="@string/add_patient_info"
         android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,25 +17,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/addPatientIv"
+        android:id="@+id/add_patient_AddImage_Iv"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/ic_person_add_teal_64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/infoTv" />
+        app:layout_constraintTop_toBottomOf="@id/add_patient_Info_Tv" />
 
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/inputSv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addPatientIv">
+        app:layout_constraintTop_toBottomOf="@id/add_patient_AddImage_Iv">
 
         <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -43,7 +42,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/nameEt"
+                android:id="@+id/add_patient_Name_Et"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="24dp"
@@ -58,7 +57,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/surnameEt"
+                android:id="@+id/add_patient_Surname_Et"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="24dp"
@@ -70,33 +69,33 @@
                 android:selectAllOnFocus="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nameEt" />
+                app:layout_constraintTop_toBottomOf="@+id/add_patient_Name_Et" />
 
             <EditText
-                android:id="@+id/stateEt"
+                android:id="@+id/add_patient_State_Et"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/border_large"
-                android:hint="@string/input_symptoms_placeholder"
+                android:hint="@string/add_patient_input_symptoms_placeholder"
                 android:inputType="text"
                 android:selectAllOnFocus="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/surnameEt" />
+                app:layout_constraintTop_toBottomOf="@+id/add_patient_Surname_Et" />
 
             <Button
-                android:id="@+id/addBtn"
+                android:id="@+id/add_patient_Add_Btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/input_btn_add"
+                android:text="@string/add_patient_add_to_waiting_room"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stateEt" />
+                app:layout_constraintTop_toBottomOf="@+id/add_patient_State_Et" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

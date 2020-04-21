@@ -5,16 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.fragment.app.activityViewModels
 import com.ns.mad_p1.R
 import com.ns.mad_p1.model.Patient
 import com.ns.mad_p1.view.fragments.ListHospitalisedFragment
-import com.ns.mad_p1.viewmodel.HospitalisedPatientsViewModel
 import kotlinx.android.synthetic.main.activity_patient_file.*
-import timber.log.Timber
 import java.text.SimpleDateFormat
-import java.util.*
 
 class PatientFileActivity : AppCompatActivity(R.layout.activity_patient_file) {
 
@@ -22,7 +17,6 @@ class PatientFileActivity : AppCompatActivity(R.layout.activity_patient_file) {
         const val PATIENT_KEY = "patientKey"
     }
 
-    private val hospitalisationPatientsViewModel: HospitalisedPatientsViewModel by viewModels()
     private var patient: Patient? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,10 +83,6 @@ class PatientFileActivity : AppCompatActivity(R.layout.activity_patient_file) {
                     hospitalisation_date,
                     dismiss_date
                 )
-                Timber.e("To remove: $patient")
-                Timber.e("To add: $edited_patient")
-//                hospitalisationPatientsViewModel.removePatient(patient!!)
-//                hospitalisationPatientsViewModel.addPatient(edited_patient)
                 returnIntent.putExtra(ListHospitalisedFragment.EDITED_PATIENT_KEY, edited_patient)
                 setResult(Activity.RESULT_OK, returnIntent)
                 finish()
@@ -100,7 +90,4 @@ class PatientFileActivity : AppCompatActivity(R.layout.activity_patient_file) {
         }
     }
 
-    override fun onBackPressed() {
-        Toast.makeText(this, R.string.back_press_disabled_msg, Toast.LENGTH_SHORT).show()
-    }
 }

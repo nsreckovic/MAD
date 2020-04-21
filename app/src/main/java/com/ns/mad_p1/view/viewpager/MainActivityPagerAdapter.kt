@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.ns.mad_p1.R
-import com.ns.mad_p1.view.fragments.InputFragment
-import com.ns.mad_p1.view.fragments.ListFragment
+import com.ns.mad_p1.view.fragments.AddPatientFragment
+import com.ns.mad_p1.view.fragments.ListsFragment
 import com.ns.mad_p1.view.fragments.ProfileFragment
 import com.ns.mad_p1.view.fragments.StateFragment
 
@@ -20,12 +20,11 @@ class MainActivityPagerAdapter(fragmentManager: FragmentManager, private var con
         const val FRAGMENT_PROFILE = 3
     }
 
-
     override fun getItem(position: Int): Fragment {
         return when(position) {
             FRAGMENT_STATE -> StateFragment()
-            FRAGMENT_INPUT -> InputFragment()
-            FRAGMENT_LIST -> ListFragment()
+            FRAGMENT_INPUT -> AddPatientFragment()
+            FRAGMENT_LIST -> ListsFragment()
             else -> ProfileFragment()
         }
     }
@@ -36,10 +35,10 @@ class MainActivityPagerAdapter(fragmentManager: FragmentManager, private var con
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
-            FRAGMENT_STATE -> context?.getString(R.string.state_mi)
-            FRAGMENT_INPUT -> context?.getString(R.string.input_mi)
-            FRAGMENT_LIST -> context?.getString(R.string.list_mi)
-            else -> context?.getString(R.string.profile_mi)
+            FRAGMENT_STATE -> context?.getString(R.string.mi_state)
+            FRAGMENT_INPUT -> context?.getString(R.string.mi_add_patient)
+            FRAGMENT_LIST -> context?.getString(R.string.mi_lists)
+            else -> context?.getString(R.string.mi_profile)
         }
     }
 

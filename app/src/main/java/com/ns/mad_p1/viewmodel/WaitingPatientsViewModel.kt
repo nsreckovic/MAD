@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ns.mad_p1.model.Patient
-import timber.log.Timber
 import java.util.*
 
 class WaitingPatientsViewModel : ViewModel() {
@@ -13,7 +12,7 @@ class WaitingPatientsViewModel : ViewModel() {
     private val patientList : MutableList<Patient> = mutableListOf()
 
     init {
-        for (i in 1..100) {
+        for (i in 1..3) {
             val uuid : UUID = UUID.randomUUID()
             val date: Date = Date()
             val patient = Patient(

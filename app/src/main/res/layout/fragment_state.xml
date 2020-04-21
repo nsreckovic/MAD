@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/infoTv"
+        android:id="@+id/state_Info_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -17,18 +17,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/waitingTv"
+        android:id="@+id/state_Waiting_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="96dp"
-        android:text="@string/state_waiting"
+        android:text="@string/state_num_waiting"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/infoTv" />
+        app:layout_constraintTop_toBottomOf="@id/state_Info_Tv" />
 
     <TextView
-        android:id="@+id/waitingNumTv"
+        android:id="@+id/state_WaitingNum_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="48dp"
@@ -36,21 +36,21 @@
         android:textColor="@color/yellow"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/waitingTv" />
+        app:layout_constraintTop_toTopOf="@id/state_Waiting_Tv" />
 
     <TextView
-        android:id="@+id/hospitalisedTv"
+        android:id="@+id/state_Hospitalised_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="24dp"
-        android:text="@string/state_hospitalised"
+        android:text="@string/state_num_hospitalised"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/waitingTv" />
+        app:layout_constraintTop_toBottomOf="@+id/state_Waiting_Tv" />
 
     <TextView
-        android:id="@+id/hospitalisedNumTv"
+        android:id="@+id/state_HospitalisedNum_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="48dp"
@@ -58,21 +58,21 @@
         android:textColor="@color/red"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/hospitalisedTv" />
+        app:layout_constraintTop_toTopOf="@id/state_Hospitalised_Tv" />
 
     <TextView
-        android:id="@+id/dismissedTv"
+        android:id="@+id/state_Dismissed_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="24dp"
-        android:text="@string/state_dismissed"
+        android:text="@string/state_num_dismissed"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hospitalisedTv" />
+        app:layout_constraintTop_toBottomOf="@+id/state_Hospitalised_Tv" />
 
     <TextView
-        android:id="@+id/dismissedNumTv"
+        android:id="@+id/state_DismissedNum_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="48dp"
@@ -80,6 +80,6 @@
         android:textColor="@color/green"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/dismissedTv" />
+        app:layout_constraintTop_toTopOf="@id/state_Dismissed_Tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

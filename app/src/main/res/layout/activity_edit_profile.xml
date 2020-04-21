@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:textAlignment="center"
         android:text="@string/edit_profile_info"
+        android:textAlignment="center"
         android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,15 +61,15 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/edit_profile_WorkerName_Et"
+                    android:id="@+id/edit_profile_Name_Et"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="48dp"
-                    android:textSize="20sp"
+                    android:background="@drawable/border_large"
                     android:inputType="text"
                     android:selectAllOnFocus="true"
-                    android:background="@drawable/border_large"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/edit_profile_Name_Tv"
                     app:layout_constraintTop_toBottomOf="@id/edit_profile_Name_Tv" />
@@ -81,19 +81,19 @@
                     android:layout_marginTop="24dp"
                     android:text="@string/profile_surname"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@id/edit_profile_WorkerName_Et"
-                    app:layout_constraintTop_toBottomOf="@id/edit_profile_WorkerName_Et" />
+                    app:layout_constraintStart_toStartOf="@id/edit_profile_Name_Et"
+                    app:layout_constraintTop_toBottomOf="@id/edit_profile_Name_Et" />
 
                 <EditText
-                    android:id="@+id/edit_profile_WorkerSurname_Et"
+                    android:id="@+id/edit_profile_Surname_Et"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textSize="20sp"
+                    android:background="@drawable/border_large"
                     android:inputType="text"
                     android:selectAllOnFocus="true"
-                    android:background="@drawable/border_large"
-                    app:layout_constraintEnd_toEndOf="@+id/edit_profile_WorkerName_Et"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_profile_Name_Et"
                     app:layout_constraintStart_toStartOf="@+id/edit_profile_Surname_Tv"
                     app:layout_constraintTop_toBottomOf="@id/edit_profile_Surname_Tv" />
 
@@ -104,19 +104,19 @@
                     android:layout_marginTop="24dp"
                     android:text="@string/profile_hospital"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@id/edit_profile_WorkerSurname_Et"
-                    app:layout_constraintTop_toBottomOf="@id/edit_profile_WorkerSurname_Et" />
+                    app:layout_constraintStart_toStartOf="@id/edit_profile_Surname_Et"
+                    app:layout_constraintTop_toBottomOf="@id/edit_profile_Surname_Et" />
 
                 <EditText
-                    android:id="@+id/edit_profile_WorkerHospital_Et"
+                    android:id="@+id/edit_profile_Hospital_Et"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:background="@drawable/border_large"
-                    android:textSize="20sp"
                     android:inputType="text"
                     android:selectAllOnFocus="true"
-                    app:layout_constraintEnd_toEndOf="@+id/edit_profile_WorkerSurname_Et"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_profile_Surname_Et"
                     app:layout_constraintStart_toStartOf="@+id/edit_profile_Hospital_Tv"
                     app:layout_constraintTop_toBottomOf="@id/edit_profile_Hospital_Tv" />
 

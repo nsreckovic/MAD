@@ -8,11 +8,19 @@ import com.ns.mad_p1.model.Patient
 import com.ns.mad_p1.view.recycler.diff.PatientDiffItemCallback
 import com.ns.mad_p1.view.recycler.viewHolder.HospitalisedPatientsViewHolder
 
-class HospitalisedPatientsAdapter(carDiffItemCallback: PatientDiffItemCallback, private val onBtnPatientFileClicked: (Patient) -> Unit, private val onBtnDismissClicked: (Patient) -> Unit): ListAdapter<Patient, HospitalisedPatientsViewHolder>(carDiffItemCallback) {
+class HospitalisedPatientsAdapter(
+    carDiffItemCallback: PatientDiffItemCallback,
+    private val onBtnPatientFileClicked: (Patient) -> Unit,
+    private val onBtnDismissClicked: (Patient) -> Unit
+) : ListAdapter<Patient, HospitalisedPatientsViewHolder>(carDiffItemCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HospitalisedPatientsViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): HospitalisedPatientsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val containerView = layoutInflater.inflate(R.layout.layout_patient_hospitalised_list_item, parent, false)
+        val containerView =
+            layoutInflater.inflate(R.layout.layout_patient_hospitalised_list_item, parent, false)
 
         return HospitalisedPatientsViewHolder(containerView, {
             val patient = getItem(it)

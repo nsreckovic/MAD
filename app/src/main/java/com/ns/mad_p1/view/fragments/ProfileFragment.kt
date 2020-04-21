@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import com.ns.mad_p1.R
 import com.ns.mad_p1.view.activities.EditProfileActivity
 import com.ns.mad_p1.view.activities.SplashActivity
-import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.*
-import timber.log.Timber
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 

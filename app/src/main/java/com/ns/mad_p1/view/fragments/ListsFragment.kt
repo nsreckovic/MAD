@@ -5,9 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.ns.mad_p1.R
 import com.ns.mad_p1.view.viewpager.ListsPagerAdapter
-import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.android.synthetic.main.fragment_lists.*
 
-class ListFragment : Fragment(R.layout.fragment_list) {
+class ListsFragment : Fragment(R.layout.fragment_lists) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -19,8 +19,8 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     }
 
     private fun initTabs() {
-        listsViewPager.adapter = ListsPagerAdapter(childFragmentManager, activity)
-        listsTabLayout.setupWithViewPager(listsViewPager)
+        lists_ViewPager.adapter = ListsPagerAdapter(childFragmentManager, activity)
+        lists_TabLayout.setupWithViewPager(lists_ViewPager)
     }
 
 }

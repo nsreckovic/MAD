@@ -25,16 +25,16 @@ class EditProfileActivity : AppCompatActivity(R.layout.activity_edit_profile) {
         val surname = sharedPreferences.getString(SplashActivity.LOGGED_IN_USER_SURNAME, "No Surname")
         val hospital = sharedPreferences.getString(SplashActivity.LOGGED_IN_USER_HOSPITAL, "No Hospital")
 
-        edit_profile_WorkerName_Et.setText(name)
-        edit_profile_WorkerSurname_Et.setText(surname)
-        edit_profile_WorkerHospital_Et.setText(hospital)
+        edit_profile_Name_Et.setText(name)
+        edit_profile_Surname_Et.setText(surname)
+        edit_profile_Hospital_Et.setText(hospital)
     }
 
     private fun initListeners() {
         edit_profile_Edit_Btn.setOnClickListener {
-            val name = edit_profile_WorkerName_Et.text.toString()
-            val surname = edit_profile_WorkerSurname_Et.text.toString()
-            val hospital = edit_profile_WorkerHospital_Et.text.toString()
+            val name = edit_profile_Name_Et.text.toString()
+            val surname = edit_profile_Surname_Et.text.toString()
+            val hospital = edit_profile_Hospital_Et.text.toString()
 
             if (name.isEmpty() || surname.isEmpty() || hospital.isEmpty()) {
                 Toast.makeText(this, R.string.input_text_error, Toast.LENGTH_SHORT).show()

@@ -11,13 +11,13 @@ import java.text.SimpleDateFormat
 class DismissedPatientsViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     fun bind(patient: Patient) {
-        Picasso.get().load(patient.picture).into(dismissItemPatientPictureIv)
-        dismissItemPatientNameTv.text = patient.name
-        dismissItemPatientSurnameTv.text = patient.surname
+        Picasso.get().load(patient.picture).into(item_dismissed_Image_Iv)
+        item_dismissed_Name_Tv.text = patient.name
+        item_dismissed_Surname_Tv.text = patient.surname
         val pattern = "dd.MM.yyyy"
         val simpleDateFormat = SimpleDateFormat(pattern)
         val dismiss_date: String = simpleDateFormat.format(patient.dismiss_date)
-        dismissItemPatientDateTv.text = "Otpusten: $dismiss_date"
+        item_dismissed_Date_Tv.text = "Otpusten: $dismiss_date"
     }
 
 }

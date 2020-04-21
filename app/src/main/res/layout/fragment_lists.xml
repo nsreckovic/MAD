@@ -7,38 +7,38 @@
     tools:context=".view.activities.MainActivity">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/listsTabLayout"
+        android:id="@+id/lists_TabLayout"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:tabMode="fixed">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="@string/list_waiting"/>
+            tools:text="@string/list_waiting_room" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="@string/list_hospitalised"/>
+            tools:text="@string/list_hospitalised" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="@string/list_dismissed"/>
+            tools:text="@string/list_dismissed" />
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/listsViewPager"
+        android:id="@+id/lists_ViewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/listsTabLayout"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lists_TabLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

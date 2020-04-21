@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="8dp"
     android:layout_marginTop="4dp"
     android:layout_marginRight="8dp"
@@ -11,52 +11,51 @@
     android:padding="16dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/patientPictureIv"
+        android:id="@+id/item_hospitalised_Image_Iv"
         android:layout_width="56dp"
         android:layout_height="56dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/patientNameTv"
+        android:id="@+id/item_hospitalised_Name_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/patientPictureIv"
-        app:layout_constraintTop_toTopOf="@+id/patientPictureIv" />
+        app:layout_constraintStart_toEndOf="@id/item_hospitalised_Image_Iv"
+        app:layout_constraintTop_toTopOf="@+id/item_hospitalised_Image_Iv" />
 
     <TextView
-        android:id="@+id/patientSurnameTv"
+        android:id="@+id/item_hospitalised_Surname_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/patientPictureIv"
-        app:layout_constraintTop_toBottomOf="@+id/patientNameTv" />
+        app:layout_constraintStart_toEndOf="@id/item_hospitalised_Image_Iv"
+        app:layout_constraintTop_toBottomOf="@+id/item_hospitalised_Name_Tv" />
 
     <Button
-        android:id="@+id/patientFileBtn"
+        android:id="@+id/item_hospitalised_File_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/patient_file"
+        android:text="@string/patient_hospitalised_item_file"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/patientPictureIv"
-        app:layout_constraintTop_toBottomOf="@+id/patientPictureIv" />
+        app:layout_constraintStart_toStartOf="@+id/item_hospitalised_Image_Iv"
+        app:layout_constraintTop_toBottomOf="@+id/item_hospitalised_Image_Iv" />
 
     <Button
-        android:id="@+id/patientDismissBtn"
+        android:id="@+id/item_hospitalised_Dismiss_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dismiss_patient"
+        android:text="@string/patient_hospitalised_item_dismiss"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/patientHealthyBtn" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

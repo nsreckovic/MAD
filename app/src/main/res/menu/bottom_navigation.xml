@@ -4,21 +4,21 @@
     <item
         android:id="@+id/state_mi"
         android:icon="@drawable/ic_state_teal_24dp"
-        android:title="@string/state_mi" />
+        android:title="@string/mi_state" />
 
     <item
         android:id="@+id/input_mi"
         android:icon="@drawable/ic_person_add_teal_24dp"
-        android:title="@string/input_mi" />
+        android:title="@string/mi_add_patient" />
 
     <item
         android:id="@+id/list_mi"
         android:icon="@drawable/ic_list_teal_24dp"
-        android:title="@string/list_mi" />
+        android:title="@string/mi_lists" />
 
     <item
         android:id="@+id/profile_mi"
         android:icon="@drawable/ic_profile_teal_24dp"
-        android:title="@string/profile_mi" />
+        android:title="@string/mi_profile" />
 
 </menu>

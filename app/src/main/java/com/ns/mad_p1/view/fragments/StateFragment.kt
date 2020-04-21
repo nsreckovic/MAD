@@ -22,19 +22,19 @@ class StateFragment : Fragment(R.layout.fragment_state) {
         init()
     }
 
-    private fun init(){
+    private fun init() {
         initObservers()
     }
 
     private fun initObservers() {
         waitingPatientsViewModel.getPatients().observe(viewLifecycleOwner, Observer {
-            waitingNumTv.text = it.size.toString()
+            state_WaitingNum_Tv.text = it.size.toString()
         })
         hospitalisedPatientsViewModel.getPatients().observe(viewLifecycleOwner, Observer {
-            hospitalisedNumTv.text = it.size.toString()
+            state_HospitalisedNum_Tv.text = it.size.toString()
         })
         dismissedPatientsViewModel.getPatients().observe(viewLifecycleOwner, Observer {
-            dismissedNumTv.text = it.size.toString()
+            state_DismissedNum_Tv.text = it.size.toString()
         })
     }
 

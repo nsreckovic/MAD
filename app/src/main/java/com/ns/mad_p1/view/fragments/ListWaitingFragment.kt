@@ -38,7 +38,7 @@ class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
     }
 
     private fun initListeners() {
-        listWaitingSearchEt.doAfterTextChanged {
+        list_waiting_Search_Et.doAfterTextChanged {
             waitingPatientsViewModel.searchPatients(it.toString())
         }
     }
@@ -46,7 +46,7 @@ class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
     private fun initRecycler() {
         var notified: Boolean = true
 
-        listWaitingRv.layoutManager = LinearLayoutManager(context)
+        list_waiting_Rv.layoutManager = LinearLayoutManager(context)
         waitingPatientsAdapter = WaitingPatientsAdapter(PatientDiffItemCallback(),
             {
                 // Healthy button
@@ -56,7 +56,7 @@ class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
                     waitingPatientsAdapter.notifyDataSetChanged()
                     notified = false
                 }
-                Toast.makeText(context, R.string.healthy_success_msg, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.list_waiting_healthy_success, Toast.LENGTH_SHORT).show()
 
             }, {
                 // Hospitalisation button
@@ -69,10 +69,10 @@ class ListWaitingFragment : Fragment(R.layout.fragment_list_waiting) {
                     waitingPatientsAdapter.notifyDataSetChanged()
                     notified = false
                 }
-                Toast.makeText(context, R.string.hospitalisation_success_msg, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.list_waiting_hospitalisation_success, Toast.LENGTH_SHORT).show()
             })
 
-        listWaitingRv.adapter = waitingPatientsAdapter
+        list_waiting_Rv.adapter = waitingPatientsAdapter
     }
 
     private fun initObservers() {

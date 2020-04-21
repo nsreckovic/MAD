@@ -8,10 +8,10 @@ import androidx.fragment.app.activityViewModels
 import com.ns.mad_p1.R
 import com.ns.mad_p1.model.Patient
 import com.ns.mad_p1.viewmodel.WaitingPatientsViewModel
-import kotlinx.android.synthetic.main.fragment_input.*
+import kotlinx.android.synthetic.main.fragment_add_patient.*
 import java.util.*
 
-class InputFragment : Fragment(R.layout.fragment_input) {
+class AddPatientFragment : Fragment(R.layout.fragment_add_patient) {
 
     private val waitingPatientsViewModel: WaitingPatientsViewModel by activityViewModels()
 
@@ -25,18 +25,18 @@ class InputFragment : Fragment(R.layout.fragment_input) {
     }
 
     private fun initListeners() {
-        addBtn.setOnClickListener {
+        add_patient_Add_Btn.setOnClickListener {
 
-            if (nameEt.text.isEmpty() || surnameEt.text.isEmpty() || stateEt.text.isEmpty()) {
+            if (add_patient_Name_Et.text.isEmpty() || add_patient_Surname_Et.text.isEmpty() || add_patient_State_Et.text.isEmpty()) {
                 Toast.makeText(context, R.string.input_text_error, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
 
             } else {
                 val uuid: UUID = UUID.randomUUID()
                 val date: Date = Date()
-                val patient_name = nameEt.text.toString()
-                val patient_surname = surnameEt.text.toString()
-                val patient_state = stateEt.text.toString()
+                val patient_name = add_patient_Name_Et.text.toString()
+                val patient_surname = add_patient_Surname_Et.text.toString()
+                val patient_state = add_patient_State_Et.text.toString()
 
                 val patient = Patient(
                     uuid,
@@ -52,11 +52,11 @@ class InputFragment : Fragment(R.layout.fragment_input) {
 
                 waitingPatientsViewModel.addPatient(patient)
 
-                Toast.makeText(context, R.string.input_success, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.add_patient_input_success, Toast.LENGTH_SHORT).show()
 
-                nameEt.setText("")
-                surnameEt.setText("")
-                stateEt.setText("")
+                add_patient_Name_Et.setText("")
+                add_patient_Surname_Et.setText("")
+                add_patient_State_Et.setText("")
             }
         }
     }

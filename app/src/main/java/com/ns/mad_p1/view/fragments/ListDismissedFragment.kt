@@ -34,15 +34,15 @@ class ListDismissedFragment : Fragment(R.layout.fragment_list_dismissed) {
     }
 
     private fun initListeners() {
-        dismissedListSearchEt.doAfterTextChanged {
+        list_dismissed_Search_Et.doAfterTextChanged {
             dismissedPatientsViewModel.searchPatients(it.toString())
         }
     }
 
     private fun initRecycler() {
-        dismissedListRv.layoutManager = GridLayoutManager(context, 2)
+        list_dismissed_Rv.layoutManager = GridLayoutManager(context, 2)
         dismissedPatientsAdapter = DismissedPatientsAdapter(PatientDiffItemCallback())
-        dismissedListRv.adapter = dismissedPatientsAdapter
+        list_dismissed_Rv.adapter = dismissedPatientsAdapter
     }
 
     private fun initObservers() {

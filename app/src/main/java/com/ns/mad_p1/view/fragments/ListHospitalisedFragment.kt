@@ -17,17 +17,10 @@ import com.ns.mad_p1.view.recycler.adapter.HospitalisedPatientsAdapter
 import com.ns.mad_p1.view.recycler.diff.PatientDiffItemCallback
 import com.ns.mad_p1.viewmodel.DismissedPatientsViewModel
 import com.ns.mad_p1.viewmodel.HospitalisedPatientsViewModel
-import kotlinx.android.synthetic.main.fragment_list_dismissed.*
 import kotlinx.android.synthetic.main.fragment_list_hospitalised.*
-import kotlinx.android.synthetic.main.fragment_list_waiting.*
-import timber.log.Timber
 import java.util.*
 
 class ListHospitalisedFragment : Fragment(R.layout.fragment_list_hospitalised) {
-
-    init {
-        Timber.e("Init")
-    }
 
     companion object {
         const val EDITED_PATIENT_KEY = "editedPatientKey"
@@ -54,13 +47,13 @@ class ListHospitalisedFragment : Fragment(R.layout.fragment_list_hospitalised) {
     }
 
     private fun initListeners() {
-        listHospitalisedSearchEt.doAfterTextChanged {
+        list_hospitalised_Search_Et.doAfterTextChanged {
             hospitalisationPatientsViewModel.searchPatients(it.toString())
         }
     }
 
     private fun initRecycler() {
-        listHospitalisedRv.layoutManager = LinearLayoutManager(context)
+        list_hospitalised_Rv.layoutManager = LinearLayoutManager(context)
         hospitalisedPatientsAdapter = HospitalisedPatientsAdapter(PatientDiffItemCallback(), {
             // File button
             val intent = Intent(context, PatientFileActivity::class.java)
@@ -73,9 +66,9 @@ class ListHospitalisedFragment : Fragment(R.layout.fragment_list_hospitalised) {
             it.dismiss_date = date
             hospitalisationPatientsViewModel.removePatient(it)
             dismissedPatientsViewModel.addPatient(it)
-            Toast.makeText(context, R.string.dismiss_success_msg, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.list_hospitalised_dismiss_patient_success, Toast.LENGTH_SHORT).show()
         })
-        listHospitalisedRv.adapter = hospitalisedPatientsAdapter
+        list_hospitalised_Rv.adapter = hospitalisedPatientsAdapter
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -88,8 +81,6 @@ class ListHospitalisedFragment : Fragment(R.layout.fragment_list_hospitalised) {
                     hospitalisedPatientsAdapter.notifyDataSetChanged()
                     Toast.makeText(context, R.string.patient_file_data_saved_msg, Toast.LENGTH_SHORT).show()
                 }
-            } else {
-                Timber.e("Return error")
             }
         }
     }
