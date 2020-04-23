@@ -55,4 +55,8 @@ class WaitingPatientsViewModel : ViewModel() {
         patients.value = filteredList
     }
 
+    fun getPatientCount(): Int {
+        return patientList.size
+    }
+
 }
