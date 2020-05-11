@@ -1,0 +1,95 @@
+<resources>
+    <!-- <string name="app_name">MAD-P1</string> -->
+    <string name="app_name">C-Track</string>
+
+    <!--  Generic  -->
+    <string name="ISZP">Informacioni sistem za praćenje stanja pacijenata obolelih od Covid-19</string>
+    <string name="name_placeholder">Unesite ime</string>
+    <string name="surname_placeholder">Unesite prezime</string>
+    <string name="hospital_placeholder">Unesite ime bolnice u kojoj ste zaposleni</string>
+    <string name="back_press_disabled_msg">Molimo Vas iskoristite dugme odustani.</string>
+    <string name="input_text_error">Molimo Vas da popunite sva polja.</string>
+
+
+    <!--  Login activity -->
+    <string name="login_enter_pin">Unesite pin</string>
+    <string name="login_login">Prijava</string>
+    <string name="login_input_pin_error">Pogrešan pin! Pokušajte ponovo.</string>
+    <string name="login_input_pin_length_error">Pin mora imati 4 cifre!</string>
+
+
+    <!--  Menu items -->
+    <string name="mi_state">Stanje</string>
+    <string name="mi_add_patient">Unos</string>
+    <string name="mi_lists">Liste</string>
+    <string name="mi_profile">Profil</string>
+
+
+    <!--  State fragment -->
+    <string name="state_info">Pregled brojnog stanja pacijenata</string>
+    <string name="state_num_waiting">Broj pacijenata u čekaonici:</string>
+    <string name="state_num_hospitalised">Broj hospitalizovanih pacijenata:</string>
+    <string name="state_num_dismissed">Broj otpuštenih pacijenata:</string>
+
+
+    <!--  AddPatient fragment -->
+    <string name="add_patient_info">Unos novog pacijenta</string>
+    <string name="add_patient_input_symptoms_placeholder">Unesite simptome i opšte stanje pacijenta</string>
+    <string name="add_patient_add_to_waiting_room">Dodaj u čekaonicu</string>
+    <string name="add_patient_input_success">Unos uspešan.</string>
+
+
+    <!--  List fragment -->
+    <string name="list_waiting_room">Čekaonica</string>
+    <string name="list_hospitalised">Hospitalizovani</string>
+    <string name="list_dismissed">Otpušteni</string>
+    <string name="list_search_placeholder">Pretraži po imenu ili prezimenu</string>
+
+
+    <!--  ListWaiting fragment -->
+    <string name="list_waiting_healthy_success">Pacijent je zdrav i uklonjen iz liste.</string>
+    <string name="list_waiting_hospitalisation_success">Pacijent je uspešno hospitalizovan.</string>
+
+
+    <!--  Patient Waiting Item -->
+    <string name="patient_waiting_item_healthy">Zdrav</string>
+    <string name="patient_waiting_item_hospitalisation">Hospitalizacija</string>
+
+
+    <!--  ListHospitalised fragment -->
+    <string name="list_hospitalised_dismiss_patient_success">Pacijent je uspešno otpušten.</string>
+
+
+    <!--  Patient Hospitalised Item -->
+    <string name="patient_hospitalised_item_file">Karton</string>
+    <string name="patient_hospitalised_item_dismiss">Otpust</string>
+
+
+    <!--  Profile fragment -->
+    <string name="profile_info">Podaci o zdravstvenom radniku</string>
+    <string name="profile_name">Ime:</string>
+    <string name="profile_surname">Prezime:</string>
+    <string name="profile_hospital">Bolnica:</string>
+    <string name="profile_edit">Izmeni</string>
+    <string name="profile_signout">Odjava</string>
+
+
+    <!--  Edit profile activity  -->
+    <string name="edit_profile_info">Izmena podataka o zdravstvenom radniku</string>
+    <string name="edit_profile_cancel">Odustani</string>
+    <string name="edit_profile_edit">Izmeni</string>
+    <string name="edit_profile_data_saved_msg">Izmene sačuvane.</string>
+
+
+    <!--  Patient file activity  -->
+    <string name="patient_file_info">Karton pacijenta</string>
+    <string name="patient_file_name">Ime:</string>
+    <string name="patient_file_surname">Prezime:</string>
+    <string name="patient_file_admission_state">Stanje pri prijemu:</string>
+    <string name="patient_file_current_state">Trenutno stanje:</string>
+    <string name="patient_file_cancel">Odustani</string>
+    <string name="patient_file_admission_date">Datum prijema:</string>
+    <string name="patient_file_edit">Izmeni</string>
+    <string name="patient_file_data_saved_msg">Izmene sačuvane.</string>
+
+</resources>
