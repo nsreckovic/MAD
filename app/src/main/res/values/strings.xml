@@ -12,4 +12,36 @@
     <string name="login_input_pin_length_error">Pin must have 4 digits!</string>
     <string name="login_input_error">Wrong username or password! Please try again</string>
 
+    <!-- Menu items -->
+    <string name="mi_timetable">Timetable</string>
+    <string name="mi_notes">Notes</string>
+    <string name="mi_statistics">Statistics</string>
+
+    <!-- Timetable Fragment -->
+    <string name="timetable_spinner_label_day">Day:</string>
+    <string name="timetable_spinner_label_group">Group:</string>
+    <string-array name="timetable_days_array">
+        <item>All</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+    <string name="timetable_filter_placeholder">Subject/Professor:</string>
+    <string name="timetable_filter_button">Filter</string>
+    <!-- Timetable item (Subject) -->
+    <string name="timetable_item_label_subject">Subject:</string>
+    <string name="timetable_item_label_type">Type:</string>
+    <string name="timetable_item_label_professor">Professor:</string>
+    <string name="timetable_item_label_room">Room:</string>
+    <string name="timetable_item_label_groups">Groups:</string>
+    <string name="timetable_item_label_time">Time:</string>
+    <string name="timetable_item_label_day">Day:</string>
+
+
+
+
 </resources>

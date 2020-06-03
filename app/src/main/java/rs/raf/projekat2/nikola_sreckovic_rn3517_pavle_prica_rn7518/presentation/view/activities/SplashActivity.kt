@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.MainActivity
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.R
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.contract.UserContract
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.viewmodel.UserViewModel
