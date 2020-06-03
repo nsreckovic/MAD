@@ -9,8 +9,7 @@
     <string name="login_username_placeholder">Enter username:</string>
     <string name="login_pin_placeholder">Enter pin:</string>
     <string name="login_login">Log In</string>
-    <string name="login_input_username_error">Wrong username! Please try again</string>
-    <string name="login_input_pin_error">Wrong pin! Please try again.</string>
     <string name="login_input_pin_length_error">Pin must have 4 digits!</string>
+    <string name="login_input_error">Wrong username or password! Please try again</string>
 
 </resources>

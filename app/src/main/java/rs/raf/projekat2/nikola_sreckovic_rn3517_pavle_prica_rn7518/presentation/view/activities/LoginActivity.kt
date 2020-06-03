@@ -1,20 +1,19 @@
 package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.activities
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.MainActivity
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.R
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.contract.UserContract
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.viewmodel.UserViewModel
 
 class LoginActivity : AppCompatActivity(R.layout.activity_login) {
 
-    companion object {
-        const val default_username = "test"
-        const val default_pin = 1234
-    }
+    private val userViewModel: UserContract.ViewModel by viewModel<UserViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +26,6 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
 
     private fun initListeners() {
         login_LogIn_Btn.setOnClickListener {
-            val editor = getSharedPreferences(packageName, Context.MODE_PRIVATE).edit()
             val username = login_Username_Et.text.toString()
             val pin_str = login_Pin_Et.text.toString()
 
@@ -39,26 +37,21 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
             val pin = Integer.parseInt(pin_str)
 
             if (pin_str.length != 4) {
-                Toast.makeText(this, R.string.login_input_pin_length_error, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.login_input_pin_length_error, Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
-            if (username == default_username) {
-                if (pin == default_pin) {
-                    editor.putBoolean(SplashActivity.LOGGED_IN, true)
-                    editor.putString(SplashActivity.LOGGED_IN_USERNAME, username)
-                    editor.commit()
-
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Toast.makeText(this, R.string.login_input_pin_error, Toast.LENGTH_SHORT).show()
-                }
+            if (userViewModel.login(username, pin)) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
             } else {
-                Toast.makeText(this, R.string.login_input_username_error, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.login_input_error, Toast.LENGTH_SHORT).show()
             }
+
 
         }
     }
+
 }
