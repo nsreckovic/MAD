@@ -15,6 +15,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.BuildConfig
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.datasources.local.database.StudentHelperDB
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -24,9 +25,9 @@ val coreModule = module {
         androidApplication().getSharedPreferences(androidApplication().packageName, Context.MODE_PRIVATE)
     }
 
-//    single { Room.databaseBuilder(androidContext(), ProjectDB::class.java, "ProjectDB")
-//        .fallbackToDestructiveMigration()
-//        .build() }
+    single { Room.databaseBuilder(androidContext(), StudentHelperDB::class.java, "ProjectDB")
+        .fallbackToDestructiveMigration()
+        .build() }
 
     single { createRetrofit(moshi = get(), httpClient = get()) }
 
@@ -45,7 +46,7 @@ fun createRetrofit(moshi: Moshi,
                    httpClient: OkHttpClient
 ): Retrofit {
     return Retrofit.Builder()
-        .baseUrl("https://ghibliapi.herokuapp.com/")
+        .baseUrl("https://rfidis.raf.edu.rs/")
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(MoshiConverterFactory.create(moshi).asLenient())
         .client(httpClient)
