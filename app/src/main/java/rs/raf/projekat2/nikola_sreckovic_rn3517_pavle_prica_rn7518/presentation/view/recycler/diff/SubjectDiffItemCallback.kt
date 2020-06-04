@@ -6,7 +6,7 @@ import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.l
 class SubjectDiffItemCallback : DiffUtil.ItemCallback<Subject>() {
 
     override fun areItemsTheSame(oldItem: Subject, newItem: Subject): Boolean {
-        return (oldItem.subject == newItem.subject) && (oldItem.type == newItem.type)
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: Subject, newItem: Subject): Boolean {

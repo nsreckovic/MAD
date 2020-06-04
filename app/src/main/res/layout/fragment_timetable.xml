@@ -37,7 +37,7 @@
                 android:id="@+id/timetable_Group_Sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp" />
+                android:entries="@array/timetable_groups_array"/>
         </LinearLayout>
 
         <Space
@@ -111,6 +111,16 @@
         app:layout_constraintEnd_toEndOf="@id/timetable_subjects_Rv"
         app:layout_constraintStart_toEndOf="@+id/timetable_filter_Et"
         app:layout_constraintTop_toTopOf="@+id/timetable_filter_Et" />
+
+    <ProgressBar
+        android:id="@+id/timetable_loading_Pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

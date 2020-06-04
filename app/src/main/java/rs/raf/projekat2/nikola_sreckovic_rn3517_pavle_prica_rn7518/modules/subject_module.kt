@@ -12,7 +12,7 @@ val subjectModule = module {
 
     viewModel { SubjectViewModel(subjectRepository = get()) }
 
-    single<SubjectRepository> { SubjectRepositoryImpl(remoteDataSource = get()) }
+    single<SubjectRepository> { SubjectRepositoryImpl(localDataSource = get(), remoteDataSource = get()) }
 
     single { get<StudentHelperDB>().getSubjectDao() }
 

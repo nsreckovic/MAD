@@ -25,7 +25,7 @@ val coreModule = module {
         androidApplication().getSharedPreferences(androidApplication().packageName, Context.MODE_PRIVATE)
     }
 
-    single { Room.databaseBuilder(androidContext(), StudentHelperDB::class.java, "ProjectDB")
+    single { Room.databaseBuilder(androidContext(), StudentHelperDB::class.java, "StudentHelperDB")
         .fallbackToDestructiveMigration()
         .build() }
 

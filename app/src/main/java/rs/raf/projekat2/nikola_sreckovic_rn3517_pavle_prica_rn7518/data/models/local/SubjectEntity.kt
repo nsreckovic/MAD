@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "subjects")
 class SubjectEntity(
-    @PrimaryKey
-    val id: String,
+    @PrimaryKey (autoGenerate = true)
+    val id: Int,
     val subject: String,
     val type: String,
     val professor: String,

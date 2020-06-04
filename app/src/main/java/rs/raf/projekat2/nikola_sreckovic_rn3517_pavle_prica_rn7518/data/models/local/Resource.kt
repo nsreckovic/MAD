@@ -1,4 +1,4 @@
-package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.remote
+package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local
 
 sealed class Resource<out T> {
     data class Success<out T>(val data: T) : Resource<T>()
