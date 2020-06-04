@@ -82,6 +82,10 @@
     <string name="new_note_content_placeholder">Insert note content here:</string>
     <string name="new_note_cancel_btn_text">Cancel</string>
     <string name="new_note_save_btn_text">Save</string>
+    <string name="new_note_title_error">Insert note title here:</string>
+    <string name="new_note_content_error">Insert note title here:</string>
+    <string name="new_note_success">Note added.</string>
+    <string name="new_note_error">Error occured while adding new note.</string>
 
     <!-- Edit Note Activity -->
     <string name="edit_note_cancel_btn_text">Cancel</string>

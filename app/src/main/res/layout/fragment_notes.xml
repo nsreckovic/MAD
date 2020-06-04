@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@id/notes_Search_Et" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notes_subjects_Rv"
+        android:id="@+id/notes_Rv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
