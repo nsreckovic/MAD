@@ -1,7 +1,7 @@
 package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.datasources.local.sharedPreferences
 
 import android.content.SharedPreferences
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.UserData
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.user.UserData
 
 class SPUserDataSource(
     private val sharedPreferences: SharedPreferences
@@ -23,7 +23,10 @@ class SPUserDataSource(
     override fun getUserData(): UserData {
         val username = sharedPreferences.getString(USER_USERNAME_KEY, "") ?: ""
         val pin = sharedPreferences.getInt(USER_PIN_KEY, 0)
-        return UserData(username, pin)
+        return UserData(
+            username,
+            pin
+        )
     }
 
     override fun login(username: String, pin: Int): Boolean {

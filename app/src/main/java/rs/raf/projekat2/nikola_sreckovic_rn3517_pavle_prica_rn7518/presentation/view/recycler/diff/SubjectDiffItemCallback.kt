@@ -1,7 +1,7 @@
 package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.recycler.diff
 
 import androidx.recyclerview.widget.DiffUtil
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.Subject
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.subject.Subject
 
 class SubjectDiffItemCallback : DiffUtil.ItemCallback<Subject>() {
 

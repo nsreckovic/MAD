@@ -74,7 +74,17 @@
     <string name="timetable_item_label_time">Time:</string>
     <string name="timetable_item_label_day">Day:</string>
 
+    <!-- Notes fragment -->
+    <string name="notes_search_placeholder">Search by title or content</string>
 
+    <!-- New Note Activity -->
+    <string name="new_note_title_placeholder">Insert note title here:</string>
+    <string name="new_note_content_placeholder">Insert note content here:</string>
+    <string name="new_note_cancel_btn_text">Cancel</string>
+    <string name="new_note_save_btn_text">Save</string>
 
+    <!-- Edit Note Activity -->
+    <string name="edit_note_cancel_btn_text">Cancel</string>
+    <string name="edit_note_save_btn_text">Save</string>
 
 </resources>

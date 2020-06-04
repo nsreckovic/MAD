@@ -3,8 +3,7 @@ package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.datasou
 import androidx.room.*
 import io.reactivex.Completable
 import io.reactivex.Observable
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.Filter
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.SubjectEntity
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.subject.SubjectEntity
 
 @Dao
 abstract class SubjectDao {
@@ -23,8 +22,7 @@ abstract class SubjectDao {
         deleteAll()
         insertAll(entities).blockingAwait()
     }
-    // AND (day LIKE '' || :day) AND ((subject LIKE '' || '%' + :professor_subject + '%') OR (professor LIKE '' || '%' + :professor_subject + '%'))
-    // , day: String, professor_subject: String
+
     @Query("SELECT * FROM subjects WHERE (groups LIKE :group) AND (day LIKE :day) AND ((subject LIKE :professor_subject) OR (professor LIKE :professor_subject))")
     abstract fun getFiltered(group: String, day: String, professor_subject: String) : Observable<List<SubjectEntity>>
 }

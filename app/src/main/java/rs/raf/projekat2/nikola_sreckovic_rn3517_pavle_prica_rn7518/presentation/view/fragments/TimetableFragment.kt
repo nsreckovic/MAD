@@ -10,8 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_timetable.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.Filter
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.Subject
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.subject.Filter
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.contract.SubjectContract
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.recycler.adapter.SubjectAdapter
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.TimetableState
@@ -50,7 +49,12 @@ class TimetableFragment : Fragment(R.layout.fragment_timetable) {
             val group = timetable_Group_Sp.selectedItem.toString()
             val day = timetable_Day_Sp.selectedItem.toString()
             val professor_subject = timetable_filter_Et.text.toString()
-            val filter: Filter = Filter(group, day, professor_subject)
+            val filter: Filter =
+                Filter(
+                    group,
+                    day,
+                    professor_subject
+                )
             Timber.e("Click")
             Timber.e(group + " " + day + " " + professor_subject)
             Timber.e("Group: " + filter.group + " Day: " + filter.day + " " + filter.professor_subject)

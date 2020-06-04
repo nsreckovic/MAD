@@ -2,8 +2,8 @@ package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.reposit
 
 
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.datasources.local.sharedPreferences.UserDataSource
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.User
-import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.toUser
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.user.User
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.user.toUser
 
 class UserRepositoryImpl(private val userDataSource: UserDataSource) : UserRepository {
 

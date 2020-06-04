@@ -9,6 +9,7 @@ import org.koin.androidx.fragment.koin.fragmentFactory
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.modules.coreModule
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.modules.noteModule
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.modules.subjectModule
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.modules.userModule
 import timber.log.Timber
@@ -34,7 +35,8 @@ class MADP2Application : Application() {
         val modules = listOf(
             coreModule,
             userModule,
-            subjectModule
+            subjectModule,
+            noteModule
         )
         startKoin {
             androidLogger(Level.DEBUG)
