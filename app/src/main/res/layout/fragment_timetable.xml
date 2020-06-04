@@ -23,13 +23,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/border_large"
-            android:minWidth="160dp">
+            android:paddingEnd="0dp"
+            android:minWidth="120dp">
 
             <TextView
                 android:id="@+id/timetable_Group_lbl_Tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
                 android:text="@string/timetable_spinner_label_group"
                 android:textStyle="bold" />
 
