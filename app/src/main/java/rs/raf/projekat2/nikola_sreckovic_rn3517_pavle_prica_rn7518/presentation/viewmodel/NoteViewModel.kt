@@ -71,12 +71,17 @@ class NoteViewModel (
     }
 
     override fun archive(note: Note) {
-        note.archived = if(note.archived == "true") "false" else "true"
-
         val archiveStatus = if(note.archived == "true") "archiving" else "unarchiving"
 
+        val noteToUpdate = Note(
+            note.id,
+            note.title,
+            note.content,
+            if(note.archived == "true") "false" else "true"
+        )
+
         val subscription = noteRepository
-            .update(note)
+            .update(noteToUpdate)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

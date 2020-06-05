@@ -2,6 +2,7 @@ package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation
 
 import androidx.recyclerview.widget.DiffUtil
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.Note
+import timber.log.Timber
 
 class NoteDiffItemCallback : DiffUtil.ItemCallback<Note>() {
 
@@ -10,7 +11,9 @@ class NoteDiffItemCallback : DiffUtil.ItemCallback<Note>() {
     }
 
     override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
-        return  (oldItem.title == newItem.title) && (oldItem.content == newItem.content)
+        return  (oldItem.title == newItem.title) &&
+                (oldItem.content == newItem.content) &&
+                (oldItem.archived == newItem.archived)
     }
 
 }

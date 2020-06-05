@@ -58,6 +58,7 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
             // Archive
             noteViewModel.archive(it)
 
+
         })
         notes_Rv.adapter = adapter
     }
@@ -83,7 +84,7 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
         noteViewModel.notesState.observe(viewLifecycleOwner, Observer {
             renderState(it)
         })
-        noteViewModel.getAllUnarchivedNotes()
+        noteViewModel.getFilteredNotes(NoteFilter("", "false"))
     }
 
     private fun renderState(state: NotesState) {

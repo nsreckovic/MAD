@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.layout_notes_list_item.*
 import kotlinx.android.synthetic.main.layout_subject_list_item.*
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.R
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.Note
+import timber.log.Timber
 
 class NoteViewHolder(
     override val containerView: View,
@@ -30,6 +32,9 @@ class NoteViewHolder(
     fun bind(note: Note) {
         item_notes_Title_Tv.text = note.title
         item_notes_Content_Tv.text = note.content
+
+        if (note.archived == "true") item_notes_Archive_Iv.setImageResource(R.drawable.ic_unarchive_24dp)
+        else item_notes_Archive_Iv.setImageResource(R.drawable.ic_archive_24dp)
     }
 
 }
