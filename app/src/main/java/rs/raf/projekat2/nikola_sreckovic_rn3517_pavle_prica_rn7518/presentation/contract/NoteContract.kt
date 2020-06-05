@@ -14,7 +14,6 @@ interface NoteContract {
 
         fun insert(note: Note)
         fun archive(note: Note)
-        fun unarchive(note: Note)
         fun update(note: Note)
         fun delete(note: Note)
         fun getAllNotes()

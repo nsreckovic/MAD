@@ -71,35 +71,20 @@ class NoteViewModel (
     }
 
     override fun archive(note: Note) {
-        note.archived = "true"
-        val subscription = noteRepository
-            .update(note)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                {
-                    notesState.value = NotesState.OperationSuccess("Note successfully archived.")
-                },
-                {
-                    addNoteDone.value = NewNoteState.Error("Error occurred while archiving note.")
-                    Timber.e(it)
-                }
-            )
-        subscriptions.add(subscription)
-    }
+        note.archived = if(note.archived == "true") "false" else "true"
 
-    override fun unarchive(note: Note) {
-        note.archived = "false"
+        val archiveStatus = if(note.archived == "true") "archiving" else "unarchiving"
+
         val subscription = noteRepository
             .update(note)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    notesState.value = NotesState.OperationSuccess("Note successfully archived.")
+                    notesState.value = NotesState.OperationSuccess("$archiveStatus successful")
                 },
                 {
-                    addNoteDone.value = NewNoteState.Error("Error occurred while archiving note.")
+                    addNoteDone.value = NewNoteState.Error("Error occurred while $archiveStatus note.")
                     Timber.e(it)
                 }
             )
