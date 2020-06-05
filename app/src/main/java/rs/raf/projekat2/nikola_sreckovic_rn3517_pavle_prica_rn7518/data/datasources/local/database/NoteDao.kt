@@ -26,6 +26,9 @@ abstract class NoteDao {
     @Query("SELECT * FROM notes WHERE archived = 'true'")
     abstract fun getAllArchived(): Observable<List<NoteEntity>>
 
+    @Query("SELECT * FROM notes WHERE ((title LIKE :title_content) OR (content LIKE :title_content)) AND (archived LIKE :archived)")
+    abstract fun getFiltered(title_content: String, archived: String): Observable<List<NoteEntity>>
+
     @Query("DELETE FROM notes WHERE id = :id")
     abstract fun delete(id: Int): Completable
 

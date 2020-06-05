@@ -2,6 +2,7 @@ package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation
 
 import androidx.lifecycle.LiveData
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.Note
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.NoteFilter
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NewNoteState
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NotesState
 
@@ -19,6 +20,7 @@ interface NoteContract {
         fun getAllNotes()
         fun getAllArchivedNotes()
         fun getAllUnarchivedNotes()
+        fun getFilteredNotes(filter: NoteFilter)
     }
 
 

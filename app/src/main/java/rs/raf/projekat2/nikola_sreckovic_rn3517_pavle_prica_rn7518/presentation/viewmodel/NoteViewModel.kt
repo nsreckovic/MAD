@@ -5,13 +5,16 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.PublishSubject
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.Resource
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.Note
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.NoteFilter
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.repositories.notes.NoteRepository
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.contract.NoteContract
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NewNoteState
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NotesState
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 
 class NoteViewModel (
     private val noteRepository: NoteRepository
@@ -20,6 +23,35 @@ class NoteViewModel (
     override val addNoteDone: MutableLiveData<NewNoteState> = MutableLiveData()
     override val notesState: MutableLiveData<NotesState> = MutableLiveData()
     private val subscriptions = CompositeDisposable()
+
+    private val publishSubject: PublishSubject<NoteFilter> = PublishSubject.create()
+
+    init {
+        val subscription = publishSubject
+            .debounce(200, TimeUnit.MILLISECONDS)
+            .distinctUntilChanged()
+            .switchMap {
+                noteRepository
+                    .getFilteredNotes(it)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnError {
+                        Timber.e("Error in publish subject")
+                        Timber.e(it)
+                    }
+            }
+            .subscribe(
+                {
+                    val list = (it as Resource.Success).data
+                    notesState.value = NotesState.Success(list)
+                },
+                {
+                    notesState.value = NotesState.Error("Error occurred while filtering data from DB.")
+                    Timber.e(it)
+                }
+            )
+        subscriptions.add(subscription)
+    }
 
     override fun insert(note: Note) {
         val subscription = noteRepository
@@ -160,6 +192,11 @@ class NoteViewModel (
                 }
             )
         subscriptions.add(subscription)
+    }
+
+    override fun getFilteredNotes(filter: NoteFilter) {
+        Timber.e(filter.title_content + " " + filter.archived)
+        publishSubject.onNext(filter)
     }
 
     override fun onCleared() {

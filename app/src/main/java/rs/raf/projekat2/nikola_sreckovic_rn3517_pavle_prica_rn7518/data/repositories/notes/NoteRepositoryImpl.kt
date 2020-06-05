@@ -6,6 +6,8 @@ import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.datasour
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.Resource
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.Note
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.NoteEntity
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.NoteFilter
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.subject.Subject
 import timber.log.Timber
 
 class NoteRepositoryImpl(
@@ -54,6 +56,20 @@ class NoteRepositoryImpl(
             .getAllUnarchived()
             .doOnNext {
                 Timber.e("Citanje iz baze (notes)")
+            }
+            .map {
+                val notes = it.map {
+                    Note(it.id, it.title, it.content, it.archived)
+                }
+                Resource.Success(notes)
+            }
+    }
+
+    override fun getFilteredNotes(filter: NoteFilter): Observable<Resource<List<Note>>> {
+        return localDataSource
+            .getFiltered(filter.title_content, filter.archived)
+            .doOnNext {
+                Timber.e("Citanje iz baze")
             }
             .map {
                 val notes = it.map {

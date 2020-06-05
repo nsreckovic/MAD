@@ -62,9 +62,8 @@ class SubjectRepositoryImpl(
     }
 
     override fun getAllFilteredSubjects(filter: Filter): Observable<Resource<List<Subject>>> {
-        Timber.e(filter.toString())
         return localDataSource
-            .getFiltered(filter.group, filter.day, filter.professor_subject) //, filter.day, filter.professor_subject
+            .getFiltered(filter.group, filter.day, filter.professor_subject)
             .doOnNext {
                 Timber.e("Citanje iz baze")
             }
