@@ -27,7 +27,6 @@ class NoteRepositoryImpl(
         return localDataSource
             .getAll()
             .doOnNext {
-                Timber.e("Citanje iz baze (notes)")
             }
             .map {
                 val notes = it.map {
@@ -41,7 +40,6 @@ class NoteRepositoryImpl(
         return localDataSource
             .getAllArchived()
             .doOnNext {
-                Timber.e("Citanje iz baze (notes)")
             }
             .map {
                 val notes = it.map {
@@ -55,7 +53,6 @@ class NoteRepositoryImpl(
         return localDataSource
             .getAllUnarchived()
             .doOnNext {
-                Timber.e("Citanje iz baze (notes)")
             }
             .map {
                 val notes = it.map {
@@ -69,7 +66,6 @@ class NoteRepositoryImpl(
         return localDataSource
             .getFiltered(filter.title_content, filter.archived)
             .doOnNext {
-                Timber.e("Citanje iz baze")
             }
             .map {
                 val notes = it.map {

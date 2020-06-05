@@ -55,16 +55,12 @@ class TimetableFragment : Fragment(R.layout.fragment_timetable) {
                     day,
                     professor_subject
                 )
-            Timber.e("Click")
-            Timber.e(group + " " + day + " " + professor_subject)
-            Timber.e("Group: " + filter.group + " Day: " + filter.day + " " + filter.professor_subject)
             subjectViewModel.getAllFilteredSubjects(filter)
         }
     }
 
     private fun initObservers() {
         subjectViewModel.timetableState.observe(viewLifecycleOwner, Observer {
-            Timber.e(it.toString())
             renderState(it)
         })
         subjectViewModel.getAllSubjects()

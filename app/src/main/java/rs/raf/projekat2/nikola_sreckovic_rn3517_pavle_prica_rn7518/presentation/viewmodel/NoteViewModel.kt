@@ -6,6 +6,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.R
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.Resource
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.Note
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.NoteFilter
@@ -36,7 +37,6 @@ class NoteViewModel (
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnError {
-                        Timber.e("Error in publish subject")
                         Timber.e(it)
                     }
             }
@@ -195,7 +195,6 @@ class NoteViewModel (
     }
 
     override fun getFilteredNotes(filter: NoteFilter) {
-        Timber.e(filter.title_content + " " + filter.archived)
         publishSubject.onNext(filter)
     }
 

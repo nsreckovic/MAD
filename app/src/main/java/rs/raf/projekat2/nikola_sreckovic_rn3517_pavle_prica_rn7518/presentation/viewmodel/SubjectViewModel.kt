@@ -33,7 +33,6 @@ class SubjectViewModel (
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnError {
-                        Timber.e("Error in publish subject")
                         Timber.e(it)
                     }
             }

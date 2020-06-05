@@ -81,7 +81,6 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
 
     private fun initObservers() {
         noteViewModel.notesState.observe(viewLifecycleOwner, Observer {
-            Timber.e(it.toString())
             renderState(it)
         })
         noteViewModel.getAllUnarchivedNotes()

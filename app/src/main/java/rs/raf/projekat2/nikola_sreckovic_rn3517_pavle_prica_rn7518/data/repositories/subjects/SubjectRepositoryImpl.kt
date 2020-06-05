@@ -18,7 +18,6 @@ class SubjectRepositoryImpl(
         return remoteDataSource
             .getAll()
             .doOnNext {
-                Timber.e("Upis u bazu")
                 val entities = it.map {
                     SubjectEntity(
                         0,
@@ -42,7 +41,6 @@ class SubjectRepositoryImpl(
         return localDataSource
             .getAll()
             .doOnNext {
-                Timber.e("Citanje iz baze")
             }
             .map {
                 val subjects = it.map {
@@ -65,7 +63,6 @@ class SubjectRepositoryImpl(
         return localDataSource
             .getFiltered(filter.group, filter.day, filter.professor_subject)
             .doOnNext {
-                Timber.e("Citanje iz baze")
             }
             .map {
                 val subjects = it.map {

@@ -91,4 +91,7 @@
     <string name="edit_note_cancel_btn_text">Cancel</string>
     <string name="edit_note_save_btn_text">Save</string>
 
+    <!-- NoteViewModel -->
+    <string name="nvm_publish_subject_error">Error occurred in publish subject.</string>
+
 </resources>

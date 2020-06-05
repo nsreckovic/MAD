@@ -49,7 +49,6 @@ class EditNoteActivity : AppCompatActivity(R.layout.activity_edit_note) {
             if (title != note.title || content != note.content) {
                 note.title = title
                 note.content = content
-                Timber.e(note.toString())
                 noteViewModel.update(note)
             }
             finish()
