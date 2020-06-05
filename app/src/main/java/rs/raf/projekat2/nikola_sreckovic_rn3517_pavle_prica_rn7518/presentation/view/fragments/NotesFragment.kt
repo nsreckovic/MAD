@@ -12,8 +12,10 @@ import kotlinx.android.synthetic.main.fragment_notes.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.R
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.contract.NoteContract
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.activities.EditNoteActivity
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.activities.NewNoteActivity
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.recycler.adapter.NoteAdapter
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.recycler.diff.NoteDiffItemCallback
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NotesState
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.viewmodel.NoteViewModel
 import timber.log.Timber
@@ -41,7 +43,21 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
 
     private fun initRecycler() {
         notes_Rv.layoutManager = LinearLayoutManager(context)
-        adapter = NoteAdapter()
+        adapter = NoteAdapter(NoteDiffItemCallback(), {
+            // Edit
+            val intent = Intent(context, EditNoteActivity::class.java)
+            intent.putExtra(EditNoteActivity.NOTE_KEY, it)
+            startActivity(intent)
+
+        }, {
+            // Delete
+            noteViewModel.delete(it)
+
+        }, {
+            // Archive
+            noteViewModel.archive(it)
+
+        })
         notes_Rv.adapter = adapter
     }
 
@@ -57,13 +73,16 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
             Timber.e(it.toString())
             renderState(it)
         })
-        noteViewModel.getAllNotes()
+        noteViewModel.getAllUnarchivedNotes()
     }
 
     private fun renderState(state: NotesState) {
         when (state) {
             is NotesState.Success -> {
                 adapter.submitList(state.notes)
+            }
+            is NotesState.OperationSuccess -> {
+                Toast.makeText(context, state.message, Toast.LENGTH_LONG).show()
             }
             is NotesState.Error -> {
                 Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show()

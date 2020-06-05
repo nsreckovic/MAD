@@ -7,8 +7,25 @@ import kotlinx.android.synthetic.main.layout_notes_list_item.*
 import kotlinx.android.synthetic.main.layout_subject_list_item.*
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.Note
 
-class NoteViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
+class NoteViewHolder(
+    override val containerView: View,
+    private val onEditBtnClicked: (Int) -> Unit,
+    private val onDeleteBtnClicked: (Int) -> Unit,
+    private val onArchiveBtnClicked: (Int) -> Unit
+) : RecyclerView.ViewHolder(containerView),
     LayoutContainer {
+
+    init {
+        item_notes_Edit_Iv.setOnClickListener {
+            onEditBtnClicked.invoke(adapterPosition)
+        }
+        item_notes_Delete_Iv.setOnClickListener {
+            onDeleteBtnClicked.invoke(adapterPosition)
+        }
+        item_notes_Archive_Iv.setOnClickListener {
+            onArchiveBtnClicked.invoke(adapterPosition)
+        }
+    }
 
     fun bind(note: Note) {
         item_notes_Title_Tv.text = note.title

@@ -17,6 +17,10 @@ class NoteRepositoryImpl(
         return localDataSource.insert(noteEntity)
     }
 
+    override fun update(note: Note): Completable {
+        return localDataSource.update(note.id, note.title, note.content, note.archived)
+    }
+
     override fun getAll(): Observable<Resource<List<Note>>> {
         return localDataSource
             .getAll()
@@ -32,11 +36,35 @@ class NoteRepositoryImpl(
     }
 
     override fun getAllArchived(): Observable<Resource<List<Note>>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return localDataSource
+            .getAllArchived()
+            .doOnNext {
+                Timber.e("Citanje iz baze (notes)")
+            }
+            .map {
+                val notes = it.map {
+                    Note(it.id, it.title, it.content, it.archived)
+                }
+                Resource.Success(notes)
+            }
     }
 
     override fun getAllUnarchived(): Observable<Resource<List<Note>>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return localDataSource
+            .getAllUnarchived()
+            .doOnNext {
+                Timber.e("Citanje iz baze (notes)")
+            }
+            .map {
+                val notes = it.map {
+                    Note(it.id, it.title, it.content, it.archived)
+                }
+                Resource.Success(notes)
+            }
+    }
+
+    override fun delete(note: Note): Completable {
+        return localDataSource.delete(note.id)
     }
 
 }

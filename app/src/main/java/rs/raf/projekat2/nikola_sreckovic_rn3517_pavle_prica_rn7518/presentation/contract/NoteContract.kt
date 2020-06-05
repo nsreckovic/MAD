@@ -12,6 +12,10 @@ interface NoteContract {
         val addNoteDone: LiveData<NewNoteState>
 
         fun insert(note: Note)
+        fun archive(note: Note)
+        fun unarchive(note: Note)
+        fun update(note: Note)
+        fun delete(note: Note)
         fun getAllNotes()
         fun getAllArchivedNotes()
         fun getAllUnarchivedNotes()

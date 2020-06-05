@@ -9,10 +9,14 @@ interface NoteRepository {
 
     fun insert(note: Note): Completable
 
+    fun update(note: Note): Completable
+
     fun getAll(): Observable<Resource<List<Note>>>
 
     fun getAllArchived(): Observable<Resource<List<Note>>>
 
     fun getAllUnarchived(): Observable<Resource<List<Note>>>
+
+    fun delete(note: Note): Completable
 
 }
