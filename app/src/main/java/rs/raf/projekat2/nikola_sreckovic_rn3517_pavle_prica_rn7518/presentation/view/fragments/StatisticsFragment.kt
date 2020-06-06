@@ -11,6 +11,7 @@ import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.R
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.NoteFilter
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.contract.NoteContract
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NotesState
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.StatisticsState
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.viewmodel.NoteViewModel
 import timber.log.Timber
 
@@ -33,15 +34,15 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
     }
 
     private fun initObservers() {
-        noteViewModel.notesState.observe(viewLifecycleOwner, Observer {
+        noteViewModel.statsState.observe(viewLifecycleOwner, Observer {
             renderState(it)
         })
         noteViewModel.getNotesFromLast5Days()
     }
 
-    private fun renderState(state: NotesState) {
+    private fun renderState(state: StatisticsState) {
         when (state) {
-            is NotesState.StatisticsState -> {
+            is StatisticsState.StatsState -> {
                 var max = 0
                 state.data.forEach {
                     if (it.num > max) max = it.num
@@ -74,7 +75,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                 statistics_num5_Tv.text = state.data[4].num.toString()
 
             }
-            is NotesState.Error -> {
+            is StatisticsState.Error -> {
                 Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show()
             }
         }

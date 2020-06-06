@@ -5,11 +5,13 @@ import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.l
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.NoteFilter
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NewNoteState
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NotesState
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.StatisticsState
 
 interface NoteContract {
 
     interface ViewModel {
         val notesState: LiveData<NotesState>
+        val statsState: LiveData<StatisticsState>
         val addNoteDone: LiveData<NewNoteState>
 
         fun insert(note: Note)

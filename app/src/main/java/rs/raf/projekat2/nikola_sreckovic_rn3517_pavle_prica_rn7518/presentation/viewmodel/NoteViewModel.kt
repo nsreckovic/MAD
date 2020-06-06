@@ -14,6 +14,7 @@ import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.reposito
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.contract.NoteContract
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NewNoteState
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.NotesState
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states.StatisticsState
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
@@ -23,6 +24,7 @@ class NoteViewModel (
 
     override val addNoteDone: MutableLiveData<NewNoteState> = MutableLiveData()
     override val notesState: MutableLiveData<NotesState> = MutableLiveData()
+    override val statsState: MutableLiveData<StatisticsState> = MutableLiveData()
     private val subscriptions = CompositeDisposable()
 
     private val publishSubject: PublishSubject<NoteFilter> = PublishSubject.create()
@@ -196,7 +198,7 @@ class NoteViewModel (
             .subscribe(
                 {
                     val list = (it as Resource.Success).data
-                    notesState.value = NotesState.StatisticsState(list)
+                    statsState.value = StatisticsState.StatsState(list)
                 },
                 {
                     notesState.value = NotesState.Error("Error occurred while getting data from DB.")
