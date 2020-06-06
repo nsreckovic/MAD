@@ -82,16 +82,22 @@
     <string name="new_note_content_placeholder">Insert note content here:</string>
     <string name="new_note_cancel_btn_text">Cancel</string>
     <string name="new_note_save_btn_text">Save</string>
-    <string name="new_note_title_error">Insert note title here:</string>
-    <string name="new_note_content_error">Insert note title here:</string>
+    <string name="new_note_title_error">The title must not be blank.</string>
+    <string name="new_note_content_error">The content must not be blank.</string>
     <string name="new_note_success">Note added.</string>
     <string name="new_note_error">Error occured while adding new note.</string>
 
     <!-- Edit Note Activity -->
     <string name="edit_note_cancel_btn_text">Cancel</string>
     <string name="edit_note_save_btn_text">Save</string>
+    <string name="edit_note_title_error">The title must not be blank.</string>
+    <string name="edit_note_content_error">The content must not be blank.</string>
 
     <!-- NoteViewModel -->
     <string name="nvm_publish_subject_error">Error occurred in publish subject.</string>
+
+    <!-- Statistics Fragment -->
+    <string name="statistics_title">Statistics</string>
+    <string name="statistics_description">Number of notes added in last 5 days:</string>
 
 </resources>

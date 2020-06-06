@@ -36,10 +36,8 @@ class NewNoteActivity : AppCompatActivity(R.layout.activity_new_note) {
             val content = new_note_Content_Et.text.toString()
             if (!title.isBlank()) {
                 if (!content.isBlank()) {
-
                     noteViewModel.insert(Note(0, title, content, "false"))
                     finish()
-
                 } else Toast.makeText(this, R.string.new_note_content_error, Toast.LENGTH_SHORT).show()
             } else Toast.makeText(this, R.string.new_note_title_error, Toast.LENGTH_SHORT).show()
         }

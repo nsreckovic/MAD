@@ -2,6 +2,7 @@ package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_edit_note.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.R
@@ -46,12 +47,16 @@ class EditNoteActivity : AppCompatActivity(R.layout.activity_edit_note) {
         edit_note_Save_Btn.setOnClickListener {
             val title = edit_note_Title_Et.text.toString()
             val content = edit_note_Content_Et.text.toString()
-            if (title != note.title || content != note.content) {
-                note.title = title
-                note.content = content
-                noteViewModel.update(note)
-            }
-            finish()
+            if (!title.isBlank()) {
+                if (!content.isBlank()) {
+                    if (title != note.title || content != note.content) {
+                        note.title = title
+                        note.content = content
+                        noteViewModel.update(note)
+                    }
+                    finish()
+                } else Toast.makeText(this, R.string.edit_note_content_error, Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(this, R.string.edit_note_title_error, Toast.LENGTH_SHORT).show()
         }
     }
 

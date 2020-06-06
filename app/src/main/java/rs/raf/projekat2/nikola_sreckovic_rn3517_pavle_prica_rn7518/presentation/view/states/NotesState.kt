@@ -1,5 +1,6 @@
 package rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.states
 
+import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.ChartData
 import rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.data.models.local.note.Note
 
 sealed class NotesState {
@@ -7,4 +8,5 @@ sealed class NotesState {
     data class Success(val notes: List<Note>): NotesState()
     data class Error(val message: String): NotesState()
     data class OperationSuccess(val message: String): NotesState()
+    data class StatisticsState(val data: List<ChartData>): NotesState()
 }

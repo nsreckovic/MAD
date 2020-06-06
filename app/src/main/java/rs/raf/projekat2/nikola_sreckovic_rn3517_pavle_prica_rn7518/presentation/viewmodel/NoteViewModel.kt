@@ -71,7 +71,7 @@ class NoteViewModel (
     }
 
     override fun archive(note: Note) {
-        val archiveStatus = if(note.archived == "true") "archiving" else "unarchiving"
+        val archiveStatus = if(note.archived == "true") "unarchived" else "archived"
 
         val noteToUpdate = Note(
             note.id,
@@ -86,10 +86,10 @@ class NoteViewModel (
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    notesState.value = NotesState.OperationSuccess("$archiveStatus successful")
+                    notesState.value = NotesState.OperationSuccess("Note $archiveStatus successfully.")
                 },
                 {
-                    addNoteDone.value = NewNoteState.Error("Error occurred while $archiveStatus note.")
+                    addNoteDone.value = NewNoteState.Error("Error occurred.")
                     Timber.e(it)
                 }
             )
@@ -186,6 +186,24 @@ class NoteViewModel (
 
     override fun getFilteredNotes(filter: NoteFilter) {
         publishSubject.onNext(filter)
+    }
+
+    override fun getNotesFromLast5Days() {
+        val subscription = noteRepository
+            .getNotesFromLast5Days()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    val list = (it as Resource.Success).data
+                    notesState.value = NotesState.StatisticsState(list)
+                },
+                {
+                    notesState.value = NotesState.Error("Error occurred while getting data from DB.")
+                    Timber.e(it)
+                }
+            )
+        subscriptions.add(subscription)
     }
 
     override fun onCleared() {

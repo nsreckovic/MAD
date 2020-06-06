@@ -20,6 +20,7 @@ interface NoteContract {
         fun getAllArchivedNotes()
         fun getAllUnarchivedNotes()
         fun getFilteredNotes(filter: NoteFilter)
+        fun getNotesFromLast5Days()
     }
 
 
