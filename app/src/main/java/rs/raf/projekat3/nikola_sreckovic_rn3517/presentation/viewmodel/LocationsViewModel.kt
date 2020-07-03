@@ -41,7 +41,6 @@ class LocationsViewModel(private val locationRepository: LocationRepository) : V
             }
             .subscribe(
                 {
-                    Timber.e("DB read")
                     val list = (it as Resource.Success).data
                     locationsState.value = LocationsState.Success(list)
                 },

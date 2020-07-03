@@ -67,14 +67,10 @@ class LocationsMapFragment : Fragment() {
         try {
             // Customise the styling of the base map using a JSON object defined
             // in a raw resource file.
-            val success: Boolean?
 
-            if (modeViewModel.getCurrentMode()) success = map?.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.dark_style_json))
-            else success = map?.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.light_style_json))
+            if (modeViewModel.getCurrentMode()) map?.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.dark_style_json))
+            else map?.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.light_style_json))
 
-            if (!success!!) {
-                Timber.e("Style parsing failed.")
-            }
         } catch (e: Resources.NotFoundException) {
             Timber.e("Can't find style. Error: $e")
         }

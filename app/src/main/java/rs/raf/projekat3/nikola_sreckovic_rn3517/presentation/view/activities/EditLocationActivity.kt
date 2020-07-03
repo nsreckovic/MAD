@@ -115,14 +115,10 @@ class EditLocationActivity : AppCompatActivity(R.layout.activity_edit_location),
         try {
             // Customise the styling of the base map using a JSON object defined
             // in a raw resource file.
-            val success: Boolean?
 
-            if (modeViewModel.getCurrentMode()) success = mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.dark_style_json))
-            else success = mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.light_style_json))
+            if (modeViewModel.getCurrentMode()) mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.dark_style_json))
+            else mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.light_style_json))
 
-            if (!success) {
-                Timber.e("Style parsing failed.")
-            }
         } catch (e: Resources.NotFoundException) {
             Timber.e("Can't find style. Error: $e")
         }
