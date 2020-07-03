@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.activities.NewNoteActivity">
+    tools:context="com.ns.mad_p2.presentation.view.activities.NewNoteActivity">
 
     <EditText
         android:id="@+id/new_note_Title_Et"

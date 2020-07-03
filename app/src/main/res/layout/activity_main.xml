@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.view.activities.MainActivity">
 
-    <rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.viewpager.NonScrollableViewPager
+    <com.ns.mad_p2.presentation.view.viewpager.NonScrollableViewPager
         android:id="@+id/main_ViewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"

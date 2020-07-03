@@ -44,7 +44,7 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.custom.ChartRectangleView
+            <com.ns.mad_p2.presentation.view.custom.ChartRectangleView
                 android:id="@+id/statistics_bar1_Cv"
                 android:layout_width="30dp"
                 android:layout_height="400dp"/>
@@ -68,7 +68,7 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.custom.ChartRectangleView
+            <com.ns.mad_p2.presentation.view.custom.ChartRectangleView
                 android:id="@+id/statistics_bar2_Cv"
                 android:layout_width="30dp"
                 android:layout_height="400dp"/>
@@ -92,7 +92,7 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.custom.ChartRectangleView
+            <com.ns.mad_p2.presentation.view.custom.ChartRectangleView
                 android:id="@+id/statistics_bar3_Cv"
                 android:layout_width="30dp"
                 android:layout_height="400dp"/>
@@ -116,7 +116,7 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.custom.ChartRectangleView
+            <com.ns.mad_p2.presentation.view.custom.ChartRectangleView
                 android:id="@+id/statistics_bar4_Cv"
                 android:layout_width="30dp"
                 android:layout_height="400dp"/>
@@ -140,7 +140,7 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <rs.raf.projekat2.nikola_sreckovic_rn3517_pavle_prica_rn7518.presentation.view.custom.ChartRectangleView
+            <com.ns.mad_p2.presentation.view.custom.ChartRectangleView
                 android:id="@+id/statistics_bar5_Cv"
                 android:layout_width="30dp"
                 android:layout_height="400dp"/>
