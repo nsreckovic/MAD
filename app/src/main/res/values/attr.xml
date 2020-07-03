@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ds">
+        <attr name="background100" format="color"/>
+        <attr name="background90" format="color"/>
+        <attr name="background80" format="color"/>
+        <attr name="container100" format="color"/>
+        <attr name="container90" format="color"/>
+        <attr name="container80" format="color"/>
+
+        <attr name="mainText" format="color"/>
+        <attr name="hintText" format="color"/>
+    </declare-styleable>
+</resources>

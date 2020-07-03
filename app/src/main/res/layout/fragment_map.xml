@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background100">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context="rs.raf.projekat3.nikola_sreckovic_rn3517.presentation.view.fragments.MapsFragment" />
+
+
+    <EditText
+        android:id="@+id/map_Title_Et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/container90"
+        android:elevation="5dp"
+        android:hint="@string/map_title_hint"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:textColor="?attr/mainText"
+        android:textColorHint="?attr/hintText"
+        app:layout_constraintBottom_toTopOf="@id/map_Content_Et"
+        app:layout_constraintEnd_toEndOf="@id/map_Content_Et"
+        app:layout_constraintStart_toStartOf="@id/map_Content_Et" />
+
+    <EditText
+        android:id="@+id/map_Content_Et"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/container90"
+        android:elevation="5dp"
+        android:gravity="top|left"
+        android:hint="@string/map_content_hint"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:maxLines="3"
+        android:minLines="3"
+        android:scrollbars="vertical"
+        android:textColor="?attr/mainText"
+        android:textColorHint="?attr/hintText"
+        app:layout_constraintBottom_toTopOf="@id/map_Save_Btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/map_Save_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="?attr/container90"
+        android:elevation="5dp"
+        android:text="@string/map_save_btn"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

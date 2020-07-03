@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/container90"
+    android:elevation="5dp"
+    android:padding="8dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/item_location_Title_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/mainText"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Content -->
+    <TextView
+        android:id="@+id/item_location_Content_Tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:maxLines="4"
+        android:minLines="3"
+        android:scrollbars="vertical"
+        android:textColor="?attr/mainText"
+        app:layout_constraintStart_toStartOf="@id/item_location_Title_Tv"
+        app:layout_constraintTop_toBottomOf="@id/item_location_Title_Tv" />
+
+    <!-- Delete button -->
+    <ImageView
+        android:id="@+id/item_location_Delete_Iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/item_location_Content_Tv"
+        app:layout_constraintEnd_toEndOf="@+id/item_location_Content_Tv"
+        app:srcCompat="@drawable/ic_round_delete_primary_24" />
+
+    <!-- Edit button -->
+    <ImageView
+        android:id="@+id/item_location_Edit_Iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/item_location_Delete_Iv"
+        app:layout_constraintTop_toTopOf="@+id/item_location_Delete_Iv"
+        app:srcCompat="@drawable/ic_round_edit_primary_24" />
+
+    <!-- Timestamp -->
+    <TextView
+        android:id="@+id/item_location_Timestamp_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="?attr/mainText"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/item_location_Content_Tv"
+        app:layout_constraintTop_toBottomOf="@+id/item_location_Content_Tv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,47 @@
+<resources>
+
+    <!-- Light application theme. -->
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="background100">@color/white_100</item>
+        <item name="background90">@color/white_90</item>
+        <item name="background80">@color/white_80</item>
+        <item name="container100">@color/light_grey_100</item>
+        <item name="container90">@color/light_grey_90</item>
+        <item name="container80">@color/light_grey_80</item>
+
+        <item name="mainText">@color/text_light</item>
+        <item name="hintText">@color/hint_light</item>
+
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <!-- Dark application theme. -->
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="background100">@color/dark_grey_100</item>
+        <item name="background90">@color/dark_grey_90</item>
+        <item name="background80">@color/dark_grey_80</item>
+        <item name="container100">@color/grey_100</item>
+        <item name="container90">@color/grey_90</item>
+        <item name="container80">@color/grey_80</item>
+
+        <item name="mainText">@color/text_dark</item>
+        <item name="hintText">@color/hint_dark</item>
+
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <!-- Animation -->
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+</resources>

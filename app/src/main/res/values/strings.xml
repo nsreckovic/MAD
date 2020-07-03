@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MAD-P3</string>
+
+    <!-- Bottom Navigation Menu -->
+    <string name="mi_map">Map</string>
+    <string name="mi_my_pins">My Pins</string>
+
+    <!-- Map Fragment -->
+    <string name="map_title_hint">Location name:</string>
+    <string name="map_content_hint">Location description:</string>
+    <string name="map_save_btn">Save</string>
+
+    <!--  Tab Labels -->
+    <string name="tabi_map">Map</string>
+    <string name="tabi_list">List</string>
+
+    <!-- Locations List Fragment -->
+    <string name="locations_list_search_placeholder">Search by title or content</string>
+    <string-array name="locations_list_sort_array">
+        <item>Oldest</item>
+        <item>Newest</item>
+    </string-array>
+    <string name="title_activity_edit_location">Map</string>
+
+</resources>
