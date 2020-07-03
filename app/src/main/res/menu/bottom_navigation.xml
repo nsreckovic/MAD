@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/state_mi"
+        android:icon="@drawable/ic_timetable_24dp"
+        android:title="@string/mi_timetable" />
+
+    <item
+        android:id="@+id/input_mi"
+        android:icon="@drawable/ic_notes_24dp"
+        android:title="@string/mi_notes" />
+
+    <item
+        android:id="@+id/list_mi"
+        android:icon="@drawable/ic_statistics_24dp"
+        android:title="@string/mi_statistics" />
+
+
+</menu>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/border_large"
+    android:padding="8dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/item_notes_Title_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Content -->
+    <TextView
+        android:id="@+id/item_notes_Content_Tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:maxLines="10"
+        android:minLines="6"
+        android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="@id/item_notes_Title_Tv"
+        app:layout_constraintTop_toBottomOf="@id/item_notes_Title_Tv" />
+
+    <ImageView
+        android:id="@+id/item_notes_Edit_Iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_notes_Delete_Iv"
+        app:layout_constraintEnd_toStartOf="@+id/item_notes_Delete_Iv"
+        app:srcCompat="@drawable/ic_edit_24dp" />
+
+    <ImageView
+        android:id="@+id/item_notes_Delete_Iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_notes_Archive_Iv"
+        app:layout_constraintEnd_toStartOf="@+id/item_notes_Archive_Iv"
+        app:srcCompat="@drawable/ic_delete_24dp" />
+
+    <ImageView
+        android:id="@+id/item_notes_Archive_Iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/item_notes_Content_Tv"
+        app:layout_constraintEnd_toEndOf="@+id/item_notes_Content_Tv"
+        app:srcCompat="@drawable/ic_archive_24dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

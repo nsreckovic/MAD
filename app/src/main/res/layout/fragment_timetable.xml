@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/timetable_LL1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/timetable_LL2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_large"
+            android:paddingEnd="0dp"
+            android:minWidth="120dp">
+
+            <TextView
+                android:id="@+id/timetable_Group_lbl_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/timetable_spinner_label_group"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/timetable_Group_Sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/timetable_groups_array"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"></Space>
+
+        <LinearLayout
+            android:id="@+id/timetable_LL3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_large"
+            android:minWidth="160dp"
+            android:paddingEnd="0dp">
+
+            <TextView
+                android:id="@+id/timetable_Day_lbl_Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="@string/timetable_spinner_label_day"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/timetable_Day_Sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/timetable_days_array" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/timetable_subjects_Rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/border_large"
+        app:layout_constraintBottom_toTopOf="@id/timetable_filter_Et"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timetable_LL1" />
+
+    <EditText
+        android:id="@+id/timetable_filter_Et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/border_large"
+        android:inputType="text"
+        android:maxLines="1"
+        android:hint="@string/timetable_filter_placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timetable_filter_Btn"
+        app:layout_constraintStart_toStartOf="@id/timetable_subjects_Rv" />
+
+    <Button
+        android:id="@+id/timetable_filter_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/timetable_filter_button"
+        android:background="@drawable/button_custom"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/timetable_filter_Et"
+        app:layout_constraintEnd_toEndOf="@id/timetable_subjects_Rv"
+        app:layout_constraintStart_toEndOf="@+id/timetable_filter_Et"
+        app:layout_constraintTop_toTopOf="@+id/timetable_filter_Et" />
+
+    <ProgressBar
+        android:id="@+id/timetable_loading_Pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
