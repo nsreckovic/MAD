@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/map_mi"
+        android:icon="@drawable/ic_round_map_primary_24"
+        android:title="@string/mi_map" />
+
+    <item
+        android:id="@+id/my_pins_mi"
+        android:icon="@drawable/ic_round_location_primary_24"
+        android:title="@string/mi_my_pins" />
+
+
+</menu>
