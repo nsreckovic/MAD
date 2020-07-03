@@ -4,4 +4,4 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="rs.raf.projekat3.nikola_sreckovic_rn3517.presentation.view.fragments.LocationsMapFragment" />
+    tools:context="com.ns.mad_p3.presentation.view.fragments.LocationsMapFragment" />

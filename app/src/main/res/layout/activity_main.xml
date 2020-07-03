@@ -7,7 +7,7 @@
     android:background="?attr/background100"
     tools:context=".presentation.view.activities.MainActivity">
 
-    <rs.raf.projekat3.nikola_sreckovic_rn3517.presentation.view.viewpager.NonScrollableViewPager
+    <com.ns.mad_p3.presentation.view.viewpager.NonScrollableViewPager
         android:id="@+id/main_ViewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
