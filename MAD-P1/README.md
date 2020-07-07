@@ -2,7 +2,7 @@
 
 Application for patient management in Covid-19 hospitals.
 
-![MAD-P1 Example Image](https://github.com/nsreckovic/MAD/MAD-P1/images/example.png)
+![MAD-P1 Example Image](https://github.com/nsreckovic/MAD/tree/master/MAD-P1/images/example.png)
 
 ## About
 
