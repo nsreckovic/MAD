@@ -22,8 +22,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import com.google.android.libraries.places.api.Places
-import com.google.android.libraries.places.api.net.PlacesClient
 import kotlinx.android.synthetic.main.fragment_map.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.ns.mad_p3.R
@@ -46,8 +44,6 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickList
     private val locationsViewModel: LocationContract.ViewModel by viewModel<LocationsViewModel>()
     private val modeViewModel: ModeContract.ViewModel by viewModel<ModeViewModel>()
 
-    // The entry point to the Places API.
-    private lateinit var placesClient: PlacesClient
     // The entry point to the Fused Location Provider.
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
@@ -81,10 +77,6 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapLongClickList
             lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION)
             cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION)
         }
-
-        // Construct a PlacesClient
-        Places.initialize(requireContext(), getString(R.string.google_maps_key))
-        placesClient = Places.createClient(requireContext())
 
         // Construct a FusedLocationProviderClient.
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext())
