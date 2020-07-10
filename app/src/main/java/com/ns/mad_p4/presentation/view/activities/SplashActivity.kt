@@ -1,4 +1,4 @@
-package com.ns.mad_p4.presentation.view.activity
+package com.ns.mad_p4.presentation.view.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
