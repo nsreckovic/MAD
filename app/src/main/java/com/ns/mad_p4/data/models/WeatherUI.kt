@@ -9,8 +9,8 @@ import java.sql.Timestamp
 class WeatherUI(
     val id: Int,
     val icon_link: String,
-    var city_name: String,
-    var temp_max: String,
+    val city_name: String,
+    val temp_max: String,
     val temp_min: String,
     val temp_avg: String,
     val wind_speed: String,

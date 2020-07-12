@@ -16,4 +16,13 @@
         <item>10 Days</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
+
+    <!-- Details Activity -->
+    <string name="details_uv_coefficient">UV Coefficient:</string>
+    <string name="details_wind_speed">Maximum Wind Speed:</string>
+    <string name="details_min_temp">Minimum Daily Temperature:</string>
+    <string name="details_avg_temp">Average Daily Temperature:</string>
+    <string name="details_max_temp">Maximum Daily Temperature:</string>
+    <string name="details_date">Date:</string>
+    <string name="title_activity_maps_test">Map</string>
 </resources>
