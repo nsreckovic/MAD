@@ -14,6 +14,10 @@ import timber.log.Timber
 
 class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    companion object {
+        const val WEATHER_KEY = "WeatherKey"
+    }
+
     private lateinit var mMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {

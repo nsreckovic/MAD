@@ -3,6 +3,7 @@ package com.ns.mad_p4.application
 import android.app.Application
 import com.facebook.stetho.Stetho
 import com.ns.mad_p4.modules.coreModule
+import com.ns.mad_p4.modules.weatherModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -30,10 +31,8 @@ class MADP4Application : Application() {
 
     private fun initKoin() {
         val modules = listOf(
-            coreModule
-//            ,
-//            locationModule,
-//            modeModule
+            coreModule,
+            weatherModule
         )
         startKoin {
             androidLogger(Level.DEBUG)

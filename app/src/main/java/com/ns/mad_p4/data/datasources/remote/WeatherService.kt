@@ -4,10 +4,11 @@ import com.ns.mad_p4.data.models.remote.WeatherAPIResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface WeatherService {
 
-    @GET("forecast.json?key=6d590680660b4c44ad5121505201107&q={city_name}&days={days}")
-    fun getByCityName(@Path("city_name") city_name: String, @Path("days") days: Int): Observable<WeatherAPIResponse>
+    @GET("forecast.json")
+    fun getByCityName(@Query("q") city_name: String, @Query("days")  days: Int): Observable<WeatherAPIResponse>
 
 }

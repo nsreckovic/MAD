@@ -3,10 +3,10 @@ package com.ns.mad_p4.data.repositories.weather
 import com.ns.mad_p4.data.datasources.local.database.WeatherDao
 import com.ns.mad_p4.data.datasources.remote.WeatherService
 import com.ns.mad_p4.data.models.local.Resource
-import com.ns.mad_p4.data.models.local.CityEntity
-import com.ns.mad_p4.data.models.WeatherUI
-import com.ns.mad_p4.data.models.local.WeatherForCityByDayEntity
+import com.ns.mad_p4.data.models.local.WeatherEntity
+import com.ns.mad_p4.data.models.ui.WeatherUI
 import io.reactivex.Observable
+import timber.log.Timber
 import java.text.SimpleDateFormat
 
 class WeatherRepositoryImpl(
@@ -18,20 +18,23 @@ class WeatherRepositoryImpl(
         return remoteDataSource
             .getByCityName(city_name, days)
             .doOnNext {
-                val city = CityEntity(
-                    0,
-                    it.location.name,
-                    it.location.country,
-                    it.location.lat,
-                    it.location.lon,
-                    it.location.tz_id,
-                    it.location.local_time
-                )
+                Timber.e(it.toString())
+                val city_name = it.location.name
+                val country = it.location.country
+                val latitude = it.location.lat
+                val longitude = it.location.lon
+                val timezone = it.location.tz_id
+                val local_time = it.location.localtime
 
-                val weathersByDay = it.forecast.forecastday.map {
-                    WeatherForCityByDayEntity(
+                val weather = it.forecast.forecastday.map {
+                    WeatherEntity(
                         0,
-                        city.id,
+                        city_name,
+                        country,
+                        latitude,
+                        longitude,
+                        timezone,
+                        local_time,
                         SimpleDateFormat("yyyy-MM-dd").parse(it.date).time,
                         it.day.maxtemp_c,
                         it.day.mintemp_c,
@@ -47,8 +50,8 @@ class WeatherRepositoryImpl(
                     )
                 }
 
-                localDataSource.insertCity(city)
-                localDataSource.insertWeatherForCityByDay(weathersByDay)
+                Timber.e("\n\n\nWeather:${weather}\n\n\n")
+                localDataSource.insert(weather)
             }
             .map {
                 Resource.Success(Unit)
@@ -57,8 +60,36 @@ class WeatherRepositoryImpl(
 
     override fun getByCityName(
         city_name: String,
+        date: Long,
         days: Int
     ): Observable<Resource<List<WeatherUI>>> {
-        TODO("Not yet implemented")
+        return localDataSource
+            .getWeatherForCity(city_name, date, days)
+            .map {
+                val weather = it.map {
+                    WeatherUI(
+                        it.id,
+                        it.name,
+                        it.country,
+                        it.latitude,
+                        it.longitude,
+                        it.timezone_id,
+                        it.local_time,
+                        it.date,
+                        it.max_temp,
+                        it.min_temp,
+                        it.avg_temp,
+                        it.max_wind_speed,
+                        it.avg_visibility,
+                        it.avg_humidity,
+                        it.daily_chance_of_rain,
+                        it.text,
+                        it.icon,
+                        it.icon_code,
+                        it.uv_coef
+                    )
+                }
+                Resource.Success(weather)
+            }
     }
 }

@@ -2,12 +2,16 @@ package com.ns.mad_p4.data.models.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.ns.mad_p4.data.models.remote.WeatherAPICondition
 
-@Entity(tableName = "weather_by_day")
-class WeatherForCityByDayEntity(
+@Entity(tableName = "weather")
+data class WeatherEntity(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    val city_id: Int,
+    val name: String,
+    val country: String,
+    val latitude: Double,
+    val longitude: Double,
+    val timezone_id: String,
+    val local_time: String,
     val date: Long,
     val max_temp: Double,
     val min_temp: Double,
@@ -19,6 +23,6 @@ class WeatherForCityByDayEntity(
     val text: String,
     val icon: String,
     val icon_code: Int,
-    val uv: Double
+    val uv_coef: Double
 ) {
 }
