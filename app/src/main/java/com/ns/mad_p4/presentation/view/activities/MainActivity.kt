@@ -58,11 +58,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private fun initListeners() {
         main_Search_Btn.setOnClickListener {
             val city_name = main_City_Search_Et.text.toString()
-            val days = convertDaysStrToInt(main_Days_Spin.selectedItem.toString())
-            if (isConnected()) weatherViewModel.fetchWeatherForCity(city_name, days)
-            weatherViewModel.getWeatherForCity(WeatherSearchParams( city_name,
-                SimpleDateFormat("yyyy-MM-dd").parse(SimpleDateFormat("yyyy-MM-dd").format(Date())),
-                days))
+            if (!city_name.isEmpty()) {
+                val days = convertDaysStrToInt(main_Days_Spin.selectedItem.toString())
+                if (isConnected()) weatherViewModel.fetchWeatherForCity(city_name, days)
+                weatherViewModel.getWeatherForCity(WeatherSearchParams( city_name,
+                    SimpleDateFormat("yyyy-MM-dd").parse(SimpleDateFormat("yyyy-MM-dd").format(Date())),
+                    days))
+            } else {
+                Toast.makeText(this, "Please enter city name to continue.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -92,14 +96,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         weatherViewModel.mainActivityWeatherState.observe(this, Observer {
             renderState(it)
         })
-        //weatherViewModel.getWeatherForCity("", 0, 0)
     }
 
     private fun renderState(state: MainActivityWeatherState) {
         when (state) {
             is MainActivityWeatherState.Success -> {
                 showLoadingState(false)
-                Timber.e("Evo me: ${state.weather}")
                 adapter.submitList(state.weather)
             }
             is MainActivityWeatherState.Error -> {

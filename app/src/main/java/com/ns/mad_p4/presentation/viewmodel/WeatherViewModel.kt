@@ -12,8 +12,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import timber.log.Timber
-import java.util.*
-import java.util.concurrent.TimeUnit
 
 class WeatherViewModel(
     private val weatherRepository: WeatherRepository
@@ -38,7 +36,6 @@ class WeatherViewModel(
             .subscribe(
                 {
                     val list = (it as Resource.Success).data
-                    Timber.e("\n\nLista:\n$list\n\n")
                     mainActivityWeatherState.value = MainActivityWeatherState.Success(list)
                 },
                 {
@@ -75,23 +72,6 @@ class WeatherViewModel(
     }
 
     override fun getWeatherForCity(params: WeatherSearchParams) {
-//        val subscription = weatherRepository
-//            .getByCityName(city_name, date, days)
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe(
-//                {
-//                    val list = (it as Resource.Success).data
-//                    Timber.e("\n\nLista:\n$list\n\n")
-//                    mainActivityWeatherState.value = MainActivityWeatherState.Success(list)
-//                },
-//                {
-//                    mainActivityWeatherState.value =
-//                        MainActivityWeatherState.Error("Error happened while getting data from databse.")
-//                    Timber.e(it)
-//                }
-//            )
-//        subscriptions.add(subscription)
         publishSubject.onNext(params)
     }
 

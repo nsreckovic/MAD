@@ -1,9 +1,7 @@
 package com.ns.mad_p4.data.models.ui
 
 import android.os.Parcelable
-import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.parcel.Parcelize
-import java.sql.Timestamp
 
 @Parcelize
 data class WeatherUI(

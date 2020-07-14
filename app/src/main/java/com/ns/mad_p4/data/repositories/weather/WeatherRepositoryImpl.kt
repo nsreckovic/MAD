@@ -50,7 +50,6 @@ class WeatherRepositoryImpl(
                     )
                 }
 
-                Timber.e("\n\n\nWeather:${weather}\n\n\n")
                 localDataSource.insertAll(weather).blockingAwait()
             }
             .map {

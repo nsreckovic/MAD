@@ -3,7 +3,6 @@ package com.ns.mad_p4.data.datasources.remote
 import com.ns.mad_p4.data.models.remote.WeatherAPIResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface WeatherService {

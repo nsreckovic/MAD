@@ -3,11 +3,8 @@ package com.ns.mad_p4.presentation.view.activities
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.gms.maps.*
 
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
@@ -27,6 +24,7 @@ class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private lateinit var mMap: GoogleMap
+    private lateinit var mMarker: LatLng
     private lateinit var weather: WeatherUI
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,8 +34,7 @@ class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         init()
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.details_map) as SupportMapFragment
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.details_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
@@ -53,7 +50,14 @@ class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun initUI() {
+        initListeners()
         initData()
+    }
+
+    private fun initListeners() {
+        details_LocationMarker_Iv.setOnClickListener {
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(mMarker.latitude, mMarker.longitude), 7.0f))
+        }
     }
 
     private fun initData() {
@@ -64,30 +68,26 @@ class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         details_MinTemp_Num_Tv.text = BigDecimal(weather.min_temp).setScale(1, RoundingMode.HALF_EVEN).toString() + " °C"
         details_WindSpeed_Num_Tv.text = BigDecimal(weather.max_wind_speed).setScale(1, RoundingMode.HALF_EVEN).toString() + " km/h"
         details_UVCoef_Num_Tv.text = BigDecimal(weather.uv_coef).setScale(1, RoundingMode.HALF_EVEN).toString()
+        details_Humidity_Num_Tv.text = BigDecimal(weather.avg_humidity).setScale(1, RoundingMode.HALF_EVEN).toString() + " %"
+        details_Visibility_Num_Tv.text = BigDecimal(weather.avg_visibility).setScale(1, RoundingMode.HALF_EVEN).toString() + " km"
+        details_DailyChanceOfRain_Num_Tv.text = BigDecimal(weather.daily_chance_of_rain).setScale(2, RoundingMode.HALF_EVEN).toString() + " %"
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
-        Timber.e("Map ready")
         mMap = googleMap
 
         customiseMap()
 
-        val marker = LatLng(weather.latitude, weather.longitude)
-        mMap.addMarker(MarkerOptions().position(marker))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(marker.latitude, marker.longitude), 7.0f))
+        mMarker = LatLng(weather.latitude, weather.longitude)
+        mMap.addMarker(MarkerOptions().position(mMarker))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(mMarker.latitude, mMarker.longitude), 7.0f))
     }
 
     private fun customiseMap() {
         try {
+            mMap.uiSettings.isMapToolbarEnabled = false
+            mMap.uiSettings.isIndoorLevelPickerEnabled = false
+
             // Customise the styling of the base map using a JSON object defined
             // in a raw resource file.
             mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.custom_map_style))

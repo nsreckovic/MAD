@@ -24,8 +24,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="8dp"
-            android:layout_weight="2"
             android:background="@drawable/container"
+            android:layout_weight="1"
             android:elevation="5dp"
             android:hint="@string/main_search_placeholder"
             android:imeOptions="actionSearch"
@@ -34,16 +34,18 @@
 
         <Spinner
             android:id="@+id/main_Days_Spin"
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginBottom="8dp"
-            android:layout_weight="1"
             android:background="@drawable/container"
             android:elevation="5dp"
-            android:entries="@array/main_days_array" />
+            android:entries="@array/main_days_array"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            />
 
         <Button
             android:id="@+id/main_Search_Btn"
@@ -54,8 +56,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_custom"
-            android:text="Search"
-            />
+            android:text="Search" />
 
     </LinearLayout>
 
@@ -73,10 +74,10 @@
         android:id="@+id/main_Loading_Pb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
