@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MAD-P4</string>
+
+    <!-- Main Activity -->
+    <string name="main_search_placeholder">Search by city name</string>
+    <string-array name="main_days_array">
+        <item>1 Day</item>
+        <item>2 Days</item>
+        <item>3 Days</item>
+        <item>4 Days</item>
+        <item>5 Days</item>
+        <item>6 Days</item>
+        <item>7 Days</item>
+        <item>8 Days</item>
+        <item>9 Days</item>
+        <item>10 Days</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+
+    <!-- Details Activity -->
+    <string name="details_uv_coefficient">UV Coefficient:</string>
+    <string name="details_wind_speed">Maximum Wind Speed:</string>
+    <string name="details_avg_visibility">Average Visibility:</string>
+    <string name="details_avg_humidity">Average Humidity:</string>
+    <string name="details_chance_of_rain">Daily Chance of Rain:</string>
+    <string name="details_min_temp">Minimum Daily Temperature:</string>
+    <string name="details_avg_temp">Average Daily Temperature:</string>
+    <string name="details_max_temp">Maximum Daily Temperature:</string>
+    <string name="details_date">Date:</string>
+    <string name="title_activity_maps_test">Map</string>
+</resources>
