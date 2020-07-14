@@ -6,8 +6,8 @@ import kotlinx.android.parcel.Parcelize
 import java.sql.Timestamp
 
 @Parcelize
-class WeatherUI(
-    val id: Int,
+data class WeatherUI(
+    val id: String,
     val name: String,
     val country: String,
     val latitude: Double,

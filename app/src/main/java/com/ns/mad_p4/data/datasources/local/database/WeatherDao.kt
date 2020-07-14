@@ -9,9 +9,9 @@ import io.reactivex.Observable
 abstract class WeatherDao {
 
     @Insert( onConflict = OnConflictStrategy.REPLACE )
-    abstract fun insert(weather: List<WeatherEntity>): Completable
+    abstract fun insertAll(weather: List<WeatherEntity>): Completable
 
-    @Query("SELECT * FROM weather WHERE name = :city_name AND (:date >= date AND date <= :date + :days * 86400000)")
-    abstract fun getWeatherForCity(city_name: String, date: Long, days: Int): Observable<List<WeatherEntity>>
+    @Query("SELECT * FROM weather WHERE name = :city_name AND date >= :date AND date <= :date_until ORDER BY date ASC")
+    abstract fun getWeatherForCity(city_name: String, date: Long, date_until: Long): Observable<List<WeatherEntity>>
 
 }

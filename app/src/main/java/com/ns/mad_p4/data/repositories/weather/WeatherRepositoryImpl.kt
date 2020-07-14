@@ -28,7 +28,7 @@ class WeatherRepositoryImpl(
 
                 val weather = it.forecast.forecastday.map {
                     WeatherEntity(
-                        0,
+                        "",
                         city_name,
                         country,
                         latitude,
@@ -51,7 +51,7 @@ class WeatherRepositoryImpl(
                 }
 
                 Timber.e("\n\n\nWeather:${weather}\n\n\n")
-                localDataSource.insert(weather)
+                localDataSource.insertAll(weather).blockingAwait()
             }
             .map {
                 Resource.Success(Unit)
@@ -63,8 +63,9 @@ class WeatherRepositoryImpl(
         date: Long,
         days: Int
     ): Observable<Resource<List<WeatherUI>>> {
+        Timber.e(city_name)
         return localDataSource
-            .getWeatherForCity(city_name, date, days)
+            .getWeatherForCity(city_name, date, date + (days - 1) * 86400000)
             .map {
                 val weather = it.map {
                     WeatherUI(

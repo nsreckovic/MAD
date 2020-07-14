@@ -1,18 +1,17 @@
 package com.ns.mad_p4.presentation.view.activities
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.mad_p4.R
-import com.ns.mad_p4.data.models.WeatherSearchParams
+import com.ns.mad_p4.data.models.ui.WeatherSearchParams
 import com.ns.mad_p4.presentation.contract.WeatherContract
 import com.ns.mad_p4.presentation.view.recycler.adapter.WeatherAdapter
 import com.ns.mad_p4.presentation.view.recycler.diff.WeatherDiffItemCallback
@@ -21,9 +20,10 @@ import com.ns.mad_p4.presentation.viewmodel.WeatherViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
+import java.text.SimpleDateFormat
 import java.util.*
 
-class MainActivity : AppCompatActivity(R.layout.activity_main), AdapterView.OnItemSelectedListener {
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val weatherViewModel: WeatherContract.ViewModel by viewModel<WeatherViewModel>()
     private lateinit var adapter: WeatherAdapter
@@ -56,19 +56,43 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), AdapterView.OnIt
     }
 
     private fun initListeners() {
-        main_City_Search_Et.doAfterTextChanged {
-            val city_name = it.toString()
-            val days = main_Days_Spin.selectedItem.toString()
-            weatherViewModel.getWeatherForCity(WeatherSearchParams(city_name, Date().time, 0, days))
+        main_Search_Btn.setOnClickListener {
+            val city_name = main_City_Search_Et.text.toString()
+            val days = convertDaysStrToInt(main_Days_Spin.selectedItem.toString())
+            if (isConnected()) weatherViewModel.fetchWeatherForCity(city_name, days)
+            weatherViewModel.getWeatherForCity(WeatherSearchParams( city_name,
+                SimpleDateFormat("yyyy-MM-dd").parse(SimpleDateFormat("yyyy-MM-dd").format(Date())),
+                days))
         }
-        main_Days_Spin.onItemSelectedListener = this
+    }
+
+    private fun isConnected(): Boolean {
+        val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        return activeNetwork?.isConnectedOrConnecting == true
+    }
+
+    private fun convertDaysStrToInt(days: String): Int {
+        when (days) {
+            "1 Day" -> return 1
+            "2 Days" -> return 2
+            "3 Days" -> return 3
+            "4 Days" -> return 4
+            "5 Days" -> return 5
+            "6 Days" -> return 6
+            "7 Days" -> return 7
+            "8 Days" -> return 8
+            "9 Days" -> return 9
+            "10 Days" -> return 10
+        }
+        return 0
     }
 
     private fun initObservers() {
         weatherViewModel.mainActivityWeatherState.observe(this, Observer {
             renderState(it)
         })
-        weatherViewModel.getWeatherForCity(WeatherSearchParams("", 0,0, ""))
+        //weatherViewModel.getWeatherForCity("", 0, 0)
     }
 
     private fun renderState(state: MainActivityWeatherState) {
@@ -92,21 +116,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), AdapterView.OnIt
         }
     }
 
-
     private fun showLoadingState(loading: Boolean) {
-        main_City_Search_Et.isVisible = !loading
+        main_City_Search_Et.isEnabled = !loading
+        main_Days_Spin.isEnabled = !loading
+        main_Search_Btn.isEnabled = !loading
         main_Weathers_Rv.isVisible = !loading
         main_Loading_Pb.isVisible = loading
-    }
-
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val days = main_Days_Spin.getItemAtPosition(position).toString()
-        val city_name = main_City_Search_Et.text.toString()
-        weatherViewModel.getWeatherForCity(WeatherSearchParams(city_name, Date().time, 0, days))
     }
 
 }
