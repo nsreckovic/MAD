@@ -18,7 +18,6 @@ class WeatherRepositoryImpl(
         return remoteDataSource
             .getByCityName(city_name, days)
             .doOnNext {
-                Timber.e(it.toString())
                 val city_name = it.location.name
                 val country = it.location.country
                 val latitude = it.location.lat
@@ -62,7 +61,6 @@ class WeatherRepositoryImpl(
         date: Long,
         days: Int
     ): Observable<Resource<List<WeatherUI>>> {
-        Timber.e(city_name)
         return localDataSource
             .getWeatherForCity(city_name, date, date + (days - 1) * 86400000)
             .map {
