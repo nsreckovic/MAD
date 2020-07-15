@@ -62,7 +62,7 @@ class DetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun initData() {
         details_CityName_Tv.text = weather.name + ", " + weather.country
-        details_Date_Tv.text = SimpleDateFormat("yyyy.MM.dd").format(Date(weather.date))
+        details_Date_Tv.text = SimpleDateFormat("dd.MM.yyyy").format(Date(weather.date))
         details_MaxTemp_Num_Tv.text = BigDecimal(weather.max_temp).setScale(1, RoundingMode.HALF_EVEN).toString() + " °C"
         details_AvgTemp_Num_Tv.text = BigDecimal(weather.avg_temp).setScale(1, RoundingMode.HALF_EVEN).toString() + " °C"
         details_MinTemp_Num_Tv.text = BigDecimal(weather.min_temp).setScale(1, RoundingMode.HALF_EVEN).toString() + " °C"
