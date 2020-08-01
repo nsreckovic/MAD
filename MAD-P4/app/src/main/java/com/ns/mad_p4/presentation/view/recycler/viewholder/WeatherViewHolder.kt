@@ -24,7 +24,7 @@ class WeatherViewHolder(
     fun bind(weatherUI: WeatherUI) {
 //        Picasso.get().load(weatherUI.icon).into(main_weather_item_Image_Iv)
         main_weather_item_Image_Iv.setImageResource(iconToDrawable(weatherUI.icon.substring(weatherUI.icon.length - 7, weatherUI.icon.length - 4).toInt()))
-        main_weather_item_Temperature_Tv.text = BigDecimal(weatherUI.avg_temp).setScale(1, RoundingMode.HALF_EVEN).toString() + " °C"
+        main_weather_item_Temperature_Tv.text = BigDecimal(weatherUI.avg_temp).setScale(1, RoundingMode.HALF_EVEN).toString() + "°C"
         main_weather_item_City_Tv.text = weatherUI.name
         main_weather_item_Date_Tv.text = SimpleDateFormat("dd.MM.yyyy").format(weatherUI.date)
     }

@@ -11,7 +11,7 @@ abstract class WeatherDao {
     @Insert( onConflict = OnConflictStrategy.REPLACE )
     abstract fun insertAll(weather: List<WeatherEntity>): Completable
 
-    @Query("SELECT * FROM weather WHERE name = :city_name AND date >= :date AND date <= :date_until ORDER BY date ASC")
+    @Query("SELECT * FROM weather WHERE name = :city_name COLLATE NOCASE AND date >= :date AND date <= :date_until ORDER BY date ASC")
     abstract fun getWeatherForCity(city_name: String, date: Long, date_until: Long): Observable<List<WeatherEntity>>
 
 }

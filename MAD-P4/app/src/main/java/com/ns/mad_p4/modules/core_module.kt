@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.room.Room
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.ns.mad_p4.BuildConfig
+import com.ns.mad_p4.R
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -53,7 +54,7 @@ fun createRetrofit(
     httpClient: OkHttpClient
 ): Retrofit {
     return Retrofit.Builder()
-        .baseUrl("https://rafweatherapi.herokuapp.com/v1/")
+        .baseUrl("https://api.weatherapi.com/v1/")
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(MoshiConverterFactory.create(moshi).asLenient())
         .client(httpClient)

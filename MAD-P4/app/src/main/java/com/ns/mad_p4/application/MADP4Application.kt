@@ -14,6 +14,10 @@ import timber.log.Timber
 
 class MADP4Application : Application() {
 
+    companion object {
+        const val WEATHER_API_KEY = "6d590680660b4c44ad5121505201107"
+    }
+
     override fun onCreate() {
         super.onCreate()
         init()
