@@ -4,4 +4,4 @@
 
 ## About
 
-This application is intended to show an understanding of the technologies we learned in the Mobile Application Development course, such as ViewModels, LiveData, persistence in database using Room, connection to Weather API using Retofit, connection to Google Maps API.
+This application is intended to show an understanding of the technologies we learned in the Mobile Application Development course, such as ViewModels, LiveData, persistence in database using Room, connection to [Weather API](https://www.weatherapi.com/) using Retofit, connection to Google Maps API.
